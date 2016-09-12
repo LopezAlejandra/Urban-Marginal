@@ -1,4 +1,4 @@
-package controleur;
+package controleur;//package
 import javax.swing.JFrame;
 
 import vue.EntreeJeu;
