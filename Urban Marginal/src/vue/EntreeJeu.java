@@ -20,6 +20,13 @@ public class EntreeJeu extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtIp;
 	
+	private void btnConnect_clic(){
+		controle.evenementVue(this, txtIp.getText());//envoi de l'adresse Ip 
+		
+	}
+	private void btnStart_clic() {
+		controle.evenementVue(this, "serveur");
+	}
 	/**
 	 * Create the frame.
 	 * @param controle 
@@ -59,16 +66,24 @@ public class EntreeJeu extends JFrame {
 				btnStart_clic();
 			}
 
-			private void btnStart_clic() {
-				System.out.println("using start button");
-				
-			}
+		
 			
 		});
 		btnStart.setBounds(275, 61, 89, 23);
 		contentPane.add(btnStart);
 		
 		JButton btnConnect = new JButton("Connect");
+		btnConnect.addMouseListener(new MouseAdapter(){
+			/**
+			 * Clic sur le bouton connect pour se connecter
+			 */
+			public void mouseClicked(MouseEvent arg0) {
+				btnConnect_clic();
+			}
+			
+		
+			
+		});
 		btnConnect.setBounds(275, 90, 89, 23);
 		contentPane.add(btnConnect);
 		
@@ -96,5 +111,12 @@ public class EntreeJeu extends JFrame {
 		txtIp.setBounds(139, 115, 86, 20);
 		contentPane.add(txtIp);
 		txtIp.setColumns(10);
-		}
+			this.controle=controle;
+			}
+
 }
+
+
+
+
+

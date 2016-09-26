@@ -1,6 +1,10 @@
-package controleur;//package
+package controleur;//package controleur
 import javax.swing.JFrame;
 
+
+import outils.connexion.ClientSocket;
+import outils.connexion.ServeurSocket;
+import vue.Arene;
 import vue.EntreeJeu;
 
 public class Controle {
@@ -9,16 +13,19 @@ public class Controle {
 		new Controle();
 	}	
 	private EntreeJeu frmEntreeJeu;
+
+	private Arene frmArene;
 	
-	
+	//Constructeur
 	public Controle(){
 		
 		this.frmEntreeJeu= new EntreeJeu(this);//création de la frame
 		frmEntreeJeu.setVisible(true);//rend visible la frame
-	}
-	public void evenementVue(JFrame uneFrame, Object info){
-		frmEntreeJeu =(EntreeJeu) uneFrame;
 		
+
+		
+	}
+	public void evenementVue(Object uneFrame, Object info){
 		if (uneFrame instanceof EntreeJeu){
 			evenementEntreeJeu(info);
 		}
@@ -27,9 +34,23 @@ public class Controle {
 	private void evenementEntreeJeu(Object info) {//Démarrer un jeu serveur ou un jeu client
 		
 		
+		if((String) info=="serveur"){
+			new ServeurSocket(this,6666);//this est l'instance actuelle de Controle.
+		}
+		else{
+			(new ClientSocket((String)info,6666,this)).getConnexionOk();//Creation d'un objet en lui appliquant une méthode
+		}
+		System.out.println((String)info);
+		
 	}
 	
-	
-	
 }
+
+
+
+
+
+
+
+
 
