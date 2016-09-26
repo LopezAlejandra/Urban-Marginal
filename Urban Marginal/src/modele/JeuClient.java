@@ -10,7 +10,7 @@ public class JeuClient extends Jeu{
 	 * @param controle
 	 */
 	public JeuClient(Controle controle){
-		super(controle)=controle;//valorise la propriété protégée controle de la classe mère, avec le paramètre
+		super.controle=controle;//valorise la propriété protégée controle de la classe mère, avec le paramètre
 	}
 
 	@Override
