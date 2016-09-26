@@ -50,7 +50,7 @@ public class Connection  extends Thread{
 	
 	}
 	
-	public void envoi(Object unObjet){//Objet a envoyer.
+	public void envoi(Object unObjet){//ce sera l'Objet a envoyer.
 		try {
 			this.out.writeObject(unObjet);//appliquez la méthode writeObject sur l'objet out, en mettant en paramètre, unObjet.
 			this.out.flush();// pour vider le canal de sortie. 
@@ -59,4 +59,5 @@ public class Connection  extends Thread{
 		}
 		
 	}
+
 }
