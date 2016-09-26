@@ -15,7 +15,7 @@ public class ServeurSocket extends Thread {
 	public ServeurSocket(Object leRecepteur, int port){
 		this.leRecepteur=leRecepteur;
 		try {
-			this.serverSocket=new ServerSocket();
+			this.serverSocket=new ServerSocket(port);
 	
 		} catch (IOException e) {
 			System.out.println("erreur grave création socket serveur:"+e);//afficher le message d'erreur dans la console
