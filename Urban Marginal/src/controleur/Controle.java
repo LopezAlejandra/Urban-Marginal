@@ -1,10 +1,10 @@
 package controleur;//package controleur
 import javax.swing.JFrame;
 
-
+import modele.Jeu;
+import modele.JeuServeur;
 import outils.connexion.ClientSocket;
 import outils.connexion.ServeurSocket;
-import vue.Arene;
 import vue.EntreeJeu;
 
 public class Controle {
@@ -13,8 +13,8 @@ public class Controle {
 		new Controle();
 	}	
 	private EntreeJeu frmEntreeJeu;
+	private Jeu leJeu;
 
-	private Arene frmArene;
 	
 	//Constructeur
 	public Controle(){
@@ -36,6 +36,8 @@ public class Controle {
 		
 		if((String) info=="serveur"){
 			new ServeurSocket(this,6666);//this est l'instance actuelle de Controle.
+			leJeu= new JeuServeur(this);//Un jeu de type serveur va ainsi être créé.
+			frmEntreeJeu.dispose();//La frame d'entrée peut être fermée.
 		}
 		else{
 			(new ClientSocket((String)info,6666,this)).getConnexionOk();//Creation d'un objet en lui appliquant une méthode
