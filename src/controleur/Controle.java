@@ -22,7 +22,7 @@ public class Controle implements Global {
 
 	
 	//Constructeur
-	public Controle(){
+	public Controle(){//
 		this.frmEntreeJeu= new EntreeJeu(this);//création de la frame
 		frmEntreeJeu.setVisible(true);//rend visible la frame	
 	}
