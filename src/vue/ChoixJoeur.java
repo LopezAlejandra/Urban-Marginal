@@ -24,9 +24,6 @@ public class ChoixJoeur extends JFrame implements Global {
 	private JTextField txtPseudo;
 	
 	private int numPerso;
-	
-	
-	
 	private JLabel lblPersonnage;
 	
 	/**
@@ -41,13 +38,15 @@ public class ChoixJoeur extends JFrame implements Global {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
+		
+		
 		JLabel lblPrecedent = new JLabel("");
 		lblPrecedent.addMouseListener(new MouseAdapter() {//
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				lblPrecedent_clic();
 			}
-			//
+			
 			
 		});
 		lblPrecedent.setBounds(58, 161, 46, 14);
@@ -91,17 +90,24 @@ public class ChoixJoeur extends JFrame implements Global {
 		
 		txtPseudo.requestFocus();
 		
-		JLabel lblFond = new JLabel("");
+		JLabel lblFond = new JLabel("");//
 		lblFond.setBounds(0,0, 400, 275);
 		lblFond.setIcon(new ImageIcon("F:\\U_Marginal\\Urban Marginal\\bin\\media\\fonds\\fondchoix.jpg"));
 		
-	
 		contentPane.add(lblFond);
 		numPerso=1;
 		affichePerso();
 	}
 	
+	private void affichePerso() {
+			//Donc, en concaténant correctement des constantes, des chaînes et numPerso, affichez le bon personnage dans la bonne position (n'oubliez pas à la fin de concaténer l'extension
+			while(numPerso<=3){
+			lblPersonnage.setIcon(new ImageIcon("F:\\U_Marginal\\Urban Marginal\\bin\\"+PERSO+numPerso+MARCHE+numPerso +"d"+GAUCHE+EXTIMAGE ));
+			numPerso=numPerso+1;
+			}	
+	}
 	public void lblPrecedent_clic(){
+		
 		
 	}
 	public void lblSuivant_clic(){
@@ -115,11 +121,7 @@ public class ChoixJoeur extends JFrame implements Global {
 	}
 	
 	
-	private void affichePerso() {
-		//Donc, en concaténant correctement des constantes, des chaînes et numPerso, affichez le bon personnage dans la bonne position (n'oubliez pas à la fin de concaténer l'extension
-		
-		lblPersonnage.setIcon(new ImageIcon("F:\\U_Marginal\\Urban Marginal\\bin\\"+PERSO+numPerso+MARCHE+"1d"+GAUCHE+EXTIMAGE ));
-		}
+	
 
 
 }
