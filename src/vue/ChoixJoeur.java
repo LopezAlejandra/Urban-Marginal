@@ -88,7 +88,7 @@ public class ChoixJoeur extends JFrame implements Global {
 			
 		});
 		lblGo.setBounds(323, 218, 46, 14);
-		contentPane.add(lblGo);
+		contentPane.add(lblGo);//
 		
 		txtPseudo = new JTextField();
 		txtPseudo.setBounds(138, 246, 125, 20);
