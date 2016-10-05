@@ -23,6 +23,8 @@ public class ChoixJoeur extends JFrame implements Global {
 	private JPanel contentPane;
 	private JTextField txtPseudo;
 	
+	private int numPerso=1;
+	
 	public void lblPrecedent_clic(){
 		
 	}
@@ -35,7 +37,8 @@ public class ChoixJoeur extends JFrame implements Global {
 	private void souris_doigt(){
 		contentPane.setCursor(new Cursor(HAND_CURSOR));
 	}
-
+	
+	private JLabel lblPersonnage;
 	
 	/**
 	 * Create the frame.
@@ -71,7 +74,8 @@ public class ChoixJoeur extends JFrame implements Global {
 		lblSuivant.setBounds(293, 161, 46, 14);
 		contentPane.add(lblSuivant);
 		
-		JLabel lblPersonnage = new JLabel("");
+		lblPersonnage = new JLabel("");
+		
 		lblPersonnage.setBounds(141, 113, 122, 122);
 		contentPane.add(lblPersonnage);
 		//
@@ -104,7 +108,14 @@ public class ChoixJoeur extends JFrame implements Global {
 		
 	
 		contentPane.add(lblFond);
+		
+		affichePerso();
 	}
-
 	
+	private void affichePerso() {
+		//Donc, en concaténant correctement des constantes, des chaînes et numPerso, affichez le bon personnage dans la bonne position (n'oubliez pas à la fin de concaténer l'extension
+		
+		lblPersonnage.setIcon(new ImageIcon("F:\\U_Marginal\\Urban Marginal\\bin\\"+PERSO+numPerso+MARCHE+"1d"+GAUCHE+EXTIMAGE ));
+		}
+
 }
