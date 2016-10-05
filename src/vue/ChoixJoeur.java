@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import controleur.Controle;
 import controleur.Global;
 
 import javax.swing.JLabel;
@@ -25,11 +26,13 @@ public class ChoixJoeur extends JFrame implements Global {
 	
 	private int numPerso;
 	private JLabel lblPersonnage;
-	
+	private Controle controle;
 	/**
 	 * Create the frame.
 	 */
-	public ChoixJoeur() {
+	public ChoixJoeur(Controle controle) {
+		super();
+		
 		setTitle("Choice");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 416, 313);
@@ -38,7 +41,7 @@ public class ChoixJoeur extends JFrame implements Global {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		
+
 		
 		JLabel lblPrecedent = new JLabel("");
 		lblPrecedent.addMouseListener(new MouseAdapter() {//
@@ -95,23 +98,27 @@ public class ChoixJoeur extends JFrame implements Global {
 		lblFond.setIcon(new ImageIcon("F:\\U_Marginal\\Urban Marginal\\bin\\media\\fonds\\fondchoix.jpg"));
 		
 		contentPane.add(lblFond);
-		numPerso=1;
-		affichePerso();
+
+		numPerso = 1;
+		this.affichePerso();
+		
 	}
 	
 	private void affichePerso() {
-			//Donc, en concaténant correctement des constantes, des chaînes et numPerso, affichez le bon personnage dans la bonne position (n'oubliez pas à la fin de concaténer l'extension
-			while(numPerso<=3){
-			lblPersonnage.setIcon(new ImageIcon("F:\\U_Marginal\\Urban Marginal\\bin\\"+PERSO+numPerso+MARCHE+numPerso +"d"+GAUCHE+EXTIMAGE ));
-			numPerso=numPerso+1;
+			lblPersonnage.setIcon(new ImageIcon("F:\\U_Marginal\\Urban Marginal\\bin\\"+PERSO+this.numPerso+MARCHE +"1d"+GAUCHE+EXTIMAGE ));
+	
 			}	
-	}
+	
 	public void lblPrecedent_clic(){
 		
+		this.numPerso = (this.numPerso + NBPERSOS + 1) % NBPERSOS + 1 ;
+		affichePerso();
 		
 	}
 	public void lblSuivant_clic(){
 		
+		this.numPerso = this.numPerso%NBPERSOS+1;
+		affichePerso();
 	}
 	private void souris_normale(){//Change l'aspect de la souris.
 		contentPane.setCursor(new Cursor(DEFAULT_CURSOR));

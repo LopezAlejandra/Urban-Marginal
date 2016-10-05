@@ -48,7 +48,7 @@ public class Controle implements Global {
 			leJeu=new JeuClient(this);
 			frmArene=new Arene();
 			frmArene.dispose();
-			frmChoixJoeur=new ChoixJoeur();
+			frmChoixJoeur=new ChoixJoeur(this);
 			frmChoixJoeur.setVisible(true);
 			
 		}
