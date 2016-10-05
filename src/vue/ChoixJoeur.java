@@ -17,6 +17,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JTextField;
 
 public class ChoixJoeur extends JFrame implements Global {
+	String FONDCHOIX;
 	
 
 	private JPanel contentPane;
