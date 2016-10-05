@@ -23,20 +23,9 @@ public class ChoixJoeur extends JFrame implements Global {
 	private JPanel contentPane;
 	private JTextField txtPseudo;
 	
-	private int numPerso=1;
+	private int numPerso;
 	
-	public void lblPrecedent_clic(){
-		
-	}
-	public void lblSuivant_clic(){
-		
-	}
-	private void souris_normale(){//Change l'aspect de la souris.
-		contentPane.setCursor(new Cursor(DEFAULT_CURSOR));
-	}
-	private void souris_doigt(){
-		contentPane.setCursor(new Cursor(HAND_CURSOR));
-	}
+	
 	
 	private JLabel lblPersonnage;
 	
@@ -76,7 +65,7 @@ public class ChoixJoeur extends JFrame implements Global {
 		
 		lblPersonnage = new JLabel("");
 		
-		lblPersonnage.setBounds(141, 113, 122, 122);
+		lblPersonnage.setBounds(183, 152, 39, 44);
 		contentPane.add(lblPersonnage);
 		//
 		JLabel lblGo = new JLabel("");
@@ -108,14 +97,29 @@ public class ChoixJoeur extends JFrame implements Global {
 		
 	
 		contentPane.add(lblFond);
-		
+		numPerso=1;
 		affichePerso();
 	}
+	
+	public void lblPrecedent_clic(){
+		
+	}
+	public void lblSuivant_clic(){
+		
+	}
+	private void souris_normale(){//Change l'aspect de la souris.
+		contentPane.setCursor(new Cursor(DEFAULT_CURSOR));
+	}
+	private void souris_doigt(){
+		contentPane.setCursor(new Cursor(HAND_CURSOR));
+	}
+	
 	
 	private void affichePerso() {
 		//Donc, en concaténant correctement des constantes, des chaînes et numPerso, affichez le bon personnage dans la bonne position (n'oubliez pas à la fin de concaténer l'extension
 		
 		lblPersonnage.setIcon(new ImageIcon("F:\\U_Marginal\\Urban Marginal\\bin\\"+PERSO+numPerso+MARCHE+"1d"+GAUCHE+EXTIMAGE ));
 		}
+
 
 }
