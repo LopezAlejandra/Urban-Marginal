@@ -1,6 +1,6 @@
-package vue;
+package vue;//
 
-import java.awt.BorderLayout;
+import java.awt.BorderLayout;//
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -15,7 +15,7 @@ public class Arene extends JFrame {
 	 * Create the frame.
 	 */
 	public Arene() {
-		setTitle("Arena");//Nom de la frame
+		setTitle("Arena");//titre de la fenêtre.
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
