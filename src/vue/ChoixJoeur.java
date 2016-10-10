@@ -141,7 +141,7 @@ public class ChoixJoeur extends JFrame implements Global {
 			txtPseudo.requestFocus();
 		}else{
 			
-			controle.evenementVue(this, PSEUDO+SEPARE+txtPseudo.getText()+SEPARE+this.numPerso);
+			controle.evenementVue(this, PSEUDO+SEPARE+txtPseudo.getText()+SEPARE+this.numPerso);//on veut démarrer le jeu
 		}
 	}
 	
