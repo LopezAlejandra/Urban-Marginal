@@ -13,11 +13,16 @@ import controleur.Controle;
 import controleur.Global;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JTextField;
 
 public class ChoixJoeur extends JFrame implements Global {
+	
+
+
 	String FONDCHOIX;
 	
 
@@ -32,6 +37,7 @@ public class ChoixJoeur extends JFrame implements Global {
 	 */
 	public ChoixJoeur(Controle controle) {
 		super();
+		this.controle=controle;
 		
 		setTitle("Choice");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -80,6 +86,9 @@ public class ChoixJoeur extends JFrame implements Global {
 			public void mouseExited(MouseEvent e) {
 				souris_doigt();
 			}
+			public void mouseClicked(java.awt.event.MouseEvent e) {
+				lblGo_clic();
+			}
 			
 			
 		});
@@ -91,7 +100,7 @@ public class ChoixJoeur extends JFrame implements Global {
 		contentPane.add(txtPseudo);
 		txtPseudo.setColumns(10);
 		
-		txtPseudo.requestFocus();
+		
 		
 		JLabel lblFond = new JLabel("");//
 		lblFond.setBounds(0,0, 400, 275);
@@ -126,7 +135,15 @@ public class ChoixJoeur extends JFrame implements Global {
 	private void souris_doigt(){
 		contentPane.setCursor(new Cursor(HAND_CURSOR));
 	}
-	
+	private void lblGo_clic(){
+		if(txtPseudo.getText().equals("")){//compare avec une chaine vide
+			JOptionPane.showMessageDialog(null, "Pseudo obligatoire");
+			txtPseudo.requestFocus();
+		}else{
+			
+			controle.evenementVue(this, PSEUDO+SEPARE+txtPseudo.getText()+SEPARE+this.numPerso);
+		}
+	}
 	
 	
 
