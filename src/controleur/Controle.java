@@ -26,12 +26,20 @@ public class Controle implements Global {
 		this.frmEntreeJeu= new EntreeJeu(this);//création de la frame
 		frmEntreeJeu.setVisible(true);//rend visible la frame	
 	}
-	public void evenementVue(Object uneFrame, Object info){
+	public void evenementVue(Object uneFrame, Object info){//permet de récupérer et traiter les événements provenant de la vue.
 		if (uneFrame instanceof EntreeJeu){
 			evenementEntreeJeu(info);
 		}
+		if(uneFrame instanceof ChoixJoeur){
+			evenementChoixJoeur();
+			
+		}
 	}//
 	
+	private void evenementChoixJoeur() {
+		// TODO Auto-generated method stub
+		
+	}
 	private void evenementEntreeJeu(Object info) {//Démarrer un jeu serveur ou un jeu client
 		
 		
