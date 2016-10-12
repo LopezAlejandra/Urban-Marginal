@@ -3,6 +3,8 @@ import java.net.Socket;
 
 import javax.swing.JOptionPane;
 
+import controleur.Controle;
+
 import java.io.*;
 
 public class Connection  extends Thread{
@@ -34,6 +36,7 @@ public class Connection  extends Thread{
 		while(inOk==true){
 			try {
 				reception= in.readObject();//attendre la réception d'un message de l'ordinateur distant
+				((Controle) this.leRecepteur).receptionInfo(this,reception);
 			} catch (ClassNotFoundException e) {
 				System.out.println("Classe non trouvée");
 				System.exit(0);
