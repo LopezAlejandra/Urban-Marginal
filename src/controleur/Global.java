@@ -18,7 +18,7 @@ public interface Global {
 	public static final int H_PERSO=44; // taille de l'image du personnage
 	public static final int L_PERSO=39;
 	public static final int PSEUDO = 0; 
-	public static final String SEPARE = "~";
+	public static final String SEPARE="~";
 	
 	
 	

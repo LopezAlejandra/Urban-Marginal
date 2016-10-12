@@ -26,6 +26,7 @@ public class Connection  extends Thread{
 			System.exit(0);
 		}
 		start();
+		((controleur.Controle)this.leRecepteur).setConnection(this);
 	}
 	public void run(){
 		boolean inOk=true; //mémorise la déconnection de l'ordinateur distant

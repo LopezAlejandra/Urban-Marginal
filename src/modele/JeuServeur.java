@@ -16,7 +16,7 @@ public class JeuServeur extends Jeu{
 
 	@Override
 	public void reception(Connection connection, Object info) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

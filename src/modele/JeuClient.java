@@ -3,6 +3,7 @@ import controleur.Controle;
 import outils.connexion.Connection;
 
 public class JeuClient extends Jeu{
+	private Connection connection;
 	
 	/**
 	 * 
@@ -15,7 +16,7 @@ public class JeuClient extends Jeu{
 	@Override
 	public void setConnection(Connection connection) {
 		// TODO Auto-generated method stub
-		
+		this.connection=connection;
 	}
 
 	@Override
@@ -27,6 +28,10 @@ public class JeuClient extends Jeu{
 	@Override
 	public void deconnection(Connection connection) {
 		// TODO Auto-generated method stub
+		
+	}
+	public void envoi(Object info){
+		super.envoi(connection, info);
 		
 	}
 
