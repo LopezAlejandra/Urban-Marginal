@@ -19,6 +19,11 @@ public interface Global {
 	public static final int L_PERSO=39;
 	public static final int PSEUDO = 0; 
 	public static final String SEPARE="~";
+	public static final int H_ARENE = 600;
+	public static final int L_ARENE = 800;
+	public static final int H_CHAT = 200;
+	public static final int H_SAISIE = 25;
+	public static final int MARGE = 5; // elle va servir pour les écarts entre différents objets
 	
 	
 	
