@@ -24,7 +24,12 @@ public interface Global {
 	public static final int H_CHAT = 200;
 	public static final int H_SAISIE = 25;
 	public static final int MARGE = 5; // elle va servir pour les écarts entre différents objets
-	
-	
+	public static final String FONDARENE=CHEMINFONDS+"fondarene.jpg";
+	public static final int NBMURS = 20;
+			
+	public static final String CHEMINMURS = CHEMIN + "murs" + SEPARATOR;
+	public static final String MUR = CHEMINMURS + "mur.gif"; // image du mur
+	public static final int H_MUR = 35 ;// hauteur de l'image
+	public static final int	L_MUR = 34; //
 	
 }
