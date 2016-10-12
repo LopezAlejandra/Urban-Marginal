@@ -19,7 +19,7 @@ public class Controle implements Global {
 	private EntreeJeu frmEntreeJeu;
 	private Jeu leJeu;
 	private Arene frmArene;
-	private ChoixJoeur frmChoixJoeur;
+	private ChoixJoeur frmChoixJoueur;
 	private Connection connection;
 
 	
@@ -34,7 +34,7 @@ public class Controle implements Global {
 			evenementEntreeJeu(info);
 		}
 		if(uneFrame instanceof ChoixJoeur){
-			evenementChoixJoeur(info);
+			evenementChoixJoueur(info);
 			
 		}
 	}//
@@ -58,20 +58,27 @@ public class Controle implements Global {
 											//au serveur.
 			frmArene=new Arene();
 			frmArene.dispose();
-			frmChoixJoeur=new ChoixJoeur(this);
-			frmChoixJoeur.setVisible(true);
+			frmChoixJoueur=new ChoixJoeur(this);
+			frmChoixJoueur.setVisible(true);
 			
 		}
 		System.out.println((String)info);
 		
 	}
-	private void evenementChoixJoeur(Object info) {
+	private void evenementChoixJoueur(Object info) {
 		((JeuClient)leJeu).envoi(info);
+		frmChoixJoueur.dispose();
+		frmArene.setVisible(true);
+		
 		
 	}
 	
 	public void setConnection(Connection connection){
 		this.connection=connection;
+	}
+	
+	public void receptionInfo(Connection connection, Object info){
+		leJeu.reception(connection, info);
 	}
 	
 	
