@@ -71,6 +71,16 @@ public class Controle implements Global {
 		frmArene.setVisible(true);
 	}
 	
+	
+	public void evenementModele(Object unJeu, String ordre, Object info){
+		if (unJeu instanceof JeuServeur){
+			evenementJeuServeur(ordre,info);// méthode à créer.
+			
+		}
+		
+	}
+	
+	
 	 
 	
 	public void receptionInfo(Connection connection, Object info){
