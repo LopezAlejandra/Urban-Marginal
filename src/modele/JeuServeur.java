@@ -33,7 +33,7 @@ public class JeuServeur extends Jeu implements Global{
 
 	@Override
 	public void reception(Connection connection, Object info) {
-		String[] infos = ((String)info).split(SEPARE);
+		String[] infos = ((String)info).split(SEPARE);//tableau
 		switch(Integer.parseInt(infos[0])){
 		case PSEUDO :
 			controle.evenementModele(this, "envoi panel murs", connection);//'un nouveau client vient d'envoyer le choix de son pseudo et du numéro de personnage
