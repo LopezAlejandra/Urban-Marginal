@@ -1,5 +1,5 @@
 package controleur;//package controleur///
-import javax.swing.JFrame;
+
 
 import modele.Jeu;
 import modele.JeuClient;
@@ -8,7 +8,7 @@ import outils.connexion.ClientSocket;
 import outils.connexion.Connection;
 import outils.connexion.ServeurSocket;
 import vue.Arene;
-import vue.ChoixJoeur;
+import vue.ChoixJoueur;
 import vue.EntreeJeu;
 
 public class Controle implements Global {
@@ -19,7 +19,7 @@ public class Controle implements Global {
 	private EntreeJeu frmEntreeJeu;
 	private Jeu leJeu;
 	private Arene frmArene;
-	private ChoixJoeur frmChoixJoueur;
+	private ChoixJoueur frmChoixJoueur;
 	private Connection connection;
 
 	
@@ -33,7 +33,7 @@ public class Controle implements Global {
 		if (uneFrame instanceof EntreeJeu){
 			evenementEntreeJeu(info);
 		}
-		if(uneFrame instanceof ChoixJoeur){
+		if(uneFrame instanceof ChoixJoueur){
 			evenementChoixJoueur(info);
 			
 		}
@@ -58,28 +58,31 @@ public class Controle implements Global {
 											//au serveur.
 			frmArene=new Arene();
 			frmArene.dispose();
-			frmChoixJoueur=new ChoixJoeur(this);
+			frmChoixJoueur=new ChoixJoueur(this);
 			frmChoixJoueur.setVisible(true);
 			
 		}
 		System.out.println((String)info);
 		
 	}
-	private void evenementChoixJoueur(Object info) {
+	private void evenementChoixJoueur(Object info){
 		((JeuClient)leJeu).envoi(info);
 		frmChoixJoueur.dispose();
 		frmArene.setVisible(true);
-		
-		
 	}
+	
+	 
+	
+	public void receptionInfo(Connection connection, Object info){
+		leJeu.reception(connection, info);
+	}
+	
 	
 	public void setConnection(Connection connection){
 		this.connection=connection;
 	}
 	
-	public void receptionInfo(Connection connection, Object info){
-		leJeu.reception(connection, info);
-	}
+	
 	
 	
 }

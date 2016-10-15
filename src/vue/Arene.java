@@ -1,7 +1,7 @@
 package vue;//
 
-import java.awt.BorderLayout;//
-import java.awt.EventQueue;
+
+
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -17,6 +17,10 @@ import javax.swing.JTextArea;
 
 public class Arene extends JFrame implements Global {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtSaisie;
 
@@ -44,7 +48,7 @@ public class Arene extends JFrame implements Global {
 		
 		JLabel lblFond = new JLabel("");
 		lblFond.setBounds(0,0, L_ARENE, H_ARENE);
-		lblFond.setIcon(new ImageIcon("F:\\U_Marginal\\Urban Marginal\\bin\\media\\fonds\\fondarene.jpg"));
+		lblFond.setIcon(new ImageIcon(FONDARENE));
 		contentPane.add(lblFond);
 	
 		

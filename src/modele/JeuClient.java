@@ -1,4 +1,5 @@
 package modele;
+
 import controleur.Controle;
 import outils.connexion.Connection;
 
@@ -27,12 +28,18 @@ public class JeuClient extends Jeu{
 
 	@Override
 	public void deconnection(Connection connection) {
-		// TODO Auto-generated method stub
+	// TODO Auto-generated method stub
 		
 	}
 	public void envoi(Object info){
 		super.envoi(connection, info);
 		
 	}
+	
+	
+
+	
+	
+
 
 }

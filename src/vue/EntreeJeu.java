@@ -1,6 +1,6 @@
 package vue;
 
-import java.awt.EventQueue;
+
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,9 +14,13 @@ import javax.swing.JTextField;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import controleur.Controle;
+
 public class EntreeJeu extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtIp;
 	

@@ -36,7 +36,8 @@ public class Connection  extends Thread{
 		while(inOk==true){
 			try {
 				reception= in.readObject();//attendre la réception d'un message de l'ordinateur distant
-				((Controle) this.leRecepteur).receptionInfo(this,reception);
+				
+				((Controle) leRecepteur).receptionInfo(this,reception);
 			} catch (ClassNotFoundException e) {
 				System.out.println("Classe non trouvée");
 				System.exit(0);
@@ -54,8 +55,9 @@ public class Connection  extends Thread{
 	
 	}
 	
-	public void envoi(Object unObjet){//ce sera l'Objet a envoyer.
+	public synchronized void envoi(Object unObjet){//ce sera l'Objet a envoyer.
 		try {
+			
 			this.out.writeObject(unObjet);//appliquez la méthode writeObject sur l'objet out, en mettant en paramètre, unObjet.
 			this.out.flush();// pour vider le canal de sortie. 
 		} catch (IOException e) {

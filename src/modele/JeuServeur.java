@@ -1,11 +1,25 @@
 package modele;
+
+import java.util.ArrayList;
+
 import controleur.Controle;
+import controleur.Global;
 import outils.connexion.Connection;
 
-public class JeuServeur extends Jeu{
-	public JeuServeur(Controle controle){
-		super.controle=controle;
-		
+public class JeuServeur extends Jeu implements Global{
+	
+	private ArrayList<Mur> lesMurs=new ArrayList<Mur>();//collection des murs
+	
+	public JeuServeur(Controle controle) {
+		super.controle = controle;
+		Label.setNbLabel(0);
+		}
+	
+	public void constructionMurs(){//va s'occuper de générer les murs.
+		for(int k = 0; k<NBMURS; k++){
+			lesMurs.add(new Mur());
+			
+		}
 	}
 
 	@Override
@@ -16,7 +30,7 @@ public class JeuServeur extends Jeu{
 
 	@Override
 	public void reception(Connection connection, Object info) {
-		
+		//System.out.println(info);
 		
 	}
 

@@ -12,9 +12,10 @@ public abstract class Jeu {//cette classe ne sera pas directement instanciée
 	public abstract void reception(Connection connection,Object info);//connection =pour savoir qui a envoyé le message et info= message envoyé
 
 	public void envoi(Connection connection, Object info){
-		connection.envoi(info);//Cet objet sera alors envoyé à l'ordinateur distant, par l'intermédiaire 
-							   //de la connexion qui a été créée.
+		connection.envoi(info);
 	}
+	//Cet objet sera alors envoyé à l'ordinateur distant, par l'intermédiaire 
+							   //de la connexion qui a été créée.
 	
 	public abstract void deconnection(Connection connection);//déconnection de l'ordinateur distant.
 	
