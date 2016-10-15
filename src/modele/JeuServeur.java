@@ -27,8 +27,8 @@ public class JeuServeur extends Jeu implements Global{
 
 	@Override
 	public void setConnection(Connection connection) {
-		lesJoueurs.put(connection,new Joueur(this));
-		
+		lesJoueurs.put(connection, new Joueur(this));
+			controle.evenementModele(this,"envoi panel murs",connection);//à revoir.
 	}
 
 	@Override

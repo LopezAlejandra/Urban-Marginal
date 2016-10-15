@@ -2,6 +2,7 @@ package controleur;//package controleur///
 
 
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import modele.Jeu;
 import modele.JeuClient;
@@ -80,12 +81,22 @@ public class Controle implements Global {
 			evenementJeuServeur(ordre,info);// méthode à créer.
 			
 		}
+		if (unJeu instanceof JeuClient){
+			evenementJeuClient(ordre,info);
+		}
 		
 	}
 	
 	
 	 
 	
+	private void evenementJeuClient(String ordre, Object info) {
+		if(ordre=="ajout panel murs"){
+			frmArene.ajoutPanelMurs((JPanel)info);
+		}
+		
+	}
+
 	private void evenementJeuServeur(String ordre, Object info) {
 		if(ordre=="ajout mur"){ //test sur ordre pour voir s'il contient la chaîne "ajout mur".
 			frmArene.ajoutMur((JLabel) info);
