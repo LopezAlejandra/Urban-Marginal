@@ -101,6 +101,9 @@ public class Controle implements Global {
 	
 	public void setConnection(Connection connection){
 		this.connection=connection;
+		if (leJeu instanceof JeuServeur){
+			leJeu.setConnection(connection);
+		}
 	}
 	
 	
