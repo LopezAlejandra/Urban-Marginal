@@ -90,7 +90,9 @@ public class Controle implements Global {
 		if(ordre=="ajout mur"){ //test sur ordre pour voir s'il contient la chaîne "ajout mur".
 			frmArene.ajoutMur((JLabel) info);
 		}
-		
+		if(ordre == "envoi panel murs"){
+			((JeuServeur)leJeu).envoi((Connection)info, frmArene.getJpnMurs());
+		}	
 		
 	}
 
