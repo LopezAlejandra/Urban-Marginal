@@ -32,7 +32,7 @@ public class JeuServeur extends Jeu implements Global{
 	}
 
 	@Override
-	public void reception(Connection connection, Object info) {
+	public void reception(Connection connection, Object info) { 
 		String[] infos = ((String)info).split(SEPARE);//tableau
 		switch(Integer.parseInt(infos[0])){
 		case PSEUDO :
