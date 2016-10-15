@@ -37,6 +37,7 @@ public class JeuServeur extends Jeu implements Global{
 		switch(Integer.parseInt(infos[0])){
 		case PSEUDO :
 			controle.evenementModele(this, "envoi panel murs", connection);//'un nouveau client vient d'envoyer le choix de son pseudo et du numéro de personnage
+			lesJoueurs.get(connection).initPerso(infos[1], Integer.parseInt(infos[2]));
 			
 			break;
 		}
