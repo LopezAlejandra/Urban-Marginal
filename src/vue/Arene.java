@@ -72,6 +72,13 @@ public class Arene extends JFrame implements Global {
 		jpnMurs.repaint();
 	}
 	
+	public void ajoutPanelMurs(JPanel unPanel){// capable de réceptionner un JPanel et de transférer tout son contenu dans le JPanel des murs
+		jpnMurs.add(unPanel);//ajout cet objet au panel des murs
+		jpnMurs.repaint();//redessine le JPanel
+		contentPane.requestFocus();
+		
+	}
+	
 	
 	
 	
