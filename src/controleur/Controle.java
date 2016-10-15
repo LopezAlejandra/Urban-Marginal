@@ -50,6 +50,7 @@ public class Controle implements Global {
 			leJeu= new JeuServeur(this);//Un jeu de type serveur va ainsi être créé.
 			frmEntreeJeu.dispose();//La frame d'entrée peut être fermée.
 			frmArene=new Arene();
+			((JeuServeur) leJeu).constructionMurs();
 			frmArene.setVisible(true);
 		}
 		else{
