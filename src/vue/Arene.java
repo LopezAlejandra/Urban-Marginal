@@ -78,6 +78,10 @@ public class Arene extends JFrame implements Global {
 		contentPane.requestFocus();
 		
 	}
+
+	public JPanel getJpnMurs() {
+		return jpnMurs;
+	}
 	
 	
 	
