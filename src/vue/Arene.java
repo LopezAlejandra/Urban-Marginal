@@ -23,6 +23,7 @@ public class Arene extends JFrame implements Global {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtSaisie;
+	private JPanel jpnMurs;
 
 	/**
 	 * Create the frame.
@@ -41,7 +42,7 @@ public class Arene extends JFrame implements Global {
 		contentPane.add(jpnJeu);
 		jpnJeu.setOpaque(false);
 		
-		JPanel jpnMurs = new JPanel();
+		jpnMurs = new JPanel();
 		jpnMurs.setBounds(0, 0, L_ARENE,H_ARENE);
 		contentPane.add(jpnMurs);
 		jpnMurs.setOpaque(false);
@@ -65,4 +66,15 @@ public class Arene extends JFrame implements Global {
 		JTextArea txtChat = new JTextArea();
 		jspChat.setViewportView(txtChat);
 	}
+	
+	public void ajoutMur(JLabel unMur){
+		jpnMurs.add(unMur); 
+		jpnMurs.repaint();
+	}
+	
+	
+	
+	
+	
+	
 }

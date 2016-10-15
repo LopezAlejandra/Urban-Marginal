@@ -1,6 +1,8 @@
 package controleur;//package controleur///
 
 
+import javax.swing.JLabel;
+
 import modele.Jeu;
 import modele.JeuClient;
 import modele.JeuServeur;
@@ -83,6 +85,14 @@ public class Controle implements Global {
 	
 	 
 	
+	private void evenementJeuServeur(String ordre, Object info) {
+		if(ordre=="ajout mur"){ //test sur ordre pour voir s'il contient la chaîne "ajout mur".
+			frmArene.ajoutMur((JLabel) info);
+		}
+		
+		
+	}
+
 	public void receptionInfo(Connection connection, Object info){
 		leJeu.reception(connection, info);
 	}
