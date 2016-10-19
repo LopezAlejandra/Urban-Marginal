@@ -82,6 +82,10 @@ public class Arene extends JFrame implements Global {
 		
 	}
 	
-	
+	public void ajoutModifJoueur(int num, JLabel Label){
+		//On va tenter de supprimer le JLabel qui se trouve àl'indice indiqué
+		jpnJeu.remove(num);
+		
+	}
 	
 }
