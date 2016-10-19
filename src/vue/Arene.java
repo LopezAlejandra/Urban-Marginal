@@ -1,15 +1,11 @@
-package vue;//
-
-
-
-
+package vue;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controleur.Global;
-import modele.Joueur;
+
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -23,7 +19,6 @@ public class Arene extends JFrame implements Global {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField txtSaisie;
 	private JPanel jpnMurs;
 	private JPanel jpnJeu ;
 
@@ -46,6 +41,7 @@ public class Arene extends JFrame implements Global {
 		
 		jpnMurs = new JPanel();
 		jpnMurs.setBounds(0, 0, L_ARENE,H_ARENE);
+		jpnMurs.setLayout(null);
 		contentPane.add(jpnMurs);
 		jpnMurs.setOpaque(false);
 		
@@ -53,12 +49,6 @@ public class Arene extends JFrame implements Global {
 		lblFond.setBounds(0,0, L_ARENE, H_ARENE);
 		lblFond.setIcon(new ImageIcon(FONDARENE));
 		contentPane.add(lblFond);
-	
-		
-		txtSaisie = new JTextField();
-		txtSaisie.setBounds(39, 270, 354, 20);
-		contentPane.add(txtSaisie);
-		txtSaisie.setColumns(10);
 		
 		JScrollPane jspChat = new JScrollPane();
 		jspChat.setBounds(0, H_ARENE+H_SAISIE,L_ARENE,H_CHAT-H_SAISIE - 7 *MARGE);
