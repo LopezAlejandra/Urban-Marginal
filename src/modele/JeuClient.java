@@ -27,6 +27,10 @@ public class JeuClient extends Jeu{
 		if(info instanceof JPanel){
 			controle.evenementModele(this, "ajout panel murs", info);
 		}
+		if(info instanceof Label){//Contrôle si l'objet reçu est de type Label
+			
+		}
+		
 	}
 
 	@Override
