@@ -69,7 +69,6 @@ public class Arene extends JFrame implements Global {
 		jpnMurs.add(unPanel);//ajout cet objet au panel des murs
 		jpnMurs.repaint();//redessine le JPanel
 		contentPane.requestFocus();
-		
 	}
 
 	public JPanel getJpnMurs() {
@@ -82,9 +81,12 @@ public class Arene extends JFrame implements Global {
 		
 	}
 	
-	public void ajoutModifJoueur(int num, JLabel Label){
-		//On va tenter de supprimer le JLabel qui se trouve àl'indice indiqué
-		jpnJeu.remove(num);
+	public void ajoutModifJoueur(int num, JLabel unLabel){
+		try {
+			this.jpnJeu.remove(num);
+		} catch (ArrayIndexOutOfBoundsException ex) {}
+		this.jpnJeu.add(unLabel, num);
+		this.jpnJeu.repaint();
 		
 	}
 	
