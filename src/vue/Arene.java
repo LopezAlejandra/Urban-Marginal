@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controleur.Global;
+import modele.Joueur;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -24,6 +25,7 @@ public class Arene extends JFrame implements Global {
 	private JPanel contentPane;
 	private JTextField txtSaisie;
 	private JPanel jpnMurs;
+	private JPanel jpnJeu ;
 
 	/**
 	 * Create the frame.
@@ -37,7 +39,7 @@ public class Arene extends JFrame implements Global {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		JPanel jpnJeu = new JPanel();
+		 jpnJeu = new JPanel();
 		jpnJeu.setBounds(0, 0, L_ARENE,H_ARENE);
 		contentPane.add(jpnJeu);
 		jpnJeu.setOpaque(false);
@@ -83,8 +85,11 @@ public class Arene extends JFrame implements Global {
 		return jpnMurs;
 	}
 	
-	
-	
+	public void ajoutJoueur(JLabel unJoueur){
+		jpnJeu.add(unJoueur);
+		jpnJeu.repaint();
+		
+	}
 	
 	
 	
