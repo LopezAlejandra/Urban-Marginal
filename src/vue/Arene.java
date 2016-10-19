@@ -36,6 +36,7 @@ public class Arene extends JFrame implements Global {
 		
 		 jpnJeu = new JPanel();
 		jpnJeu.setBounds(0, 0, L_ARENE,H_ARENE);
+		jpnJeu.setLayout(null);
 		contentPane.add(jpnJeu);
 		jpnJeu.setOpaque(false);
 		
