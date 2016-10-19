@@ -31,5 +31,6 @@ public interface Global {
 	public static final String MUR = CHEMINMURS + "mur.gif"; // image du mur
 	public static final int H_MUR = 35 ;// hauteur de l'image
 	public static final int	L_MUR = 34; //
+	public static final int H_MESSAGE=8;
 	
 }
