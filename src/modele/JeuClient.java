@@ -28,7 +28,7 @@ public class JeuClient extends Jeu{
 			controle.evenementModele(this, "ajout panel murs", info);
 		}
 		if(info instanceof Label){//Contrôle si l'objet reçu est de type Label
-			
+			controle.evenementModele(this,"ajout joueur",info);
 		}
 		
 	}
