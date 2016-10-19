@@ -46,6 +46,7 @@ public class Joueur extends Objet implements Global {
 	
 		premierePosition(lesJoueurs, lesMurs);
 		jeuServeur.nouveauLabelJeu(message);
+		affiche(MARCHE,etape);
 	}
 	
 	
