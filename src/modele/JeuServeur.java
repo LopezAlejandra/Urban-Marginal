@@ -21,39 +21,31 @@ public class JeuServeur extends Jeu implements Global{
 		for(int k = 0; k<NBMURS; k++){
 			lesMurs.add(new Mur());
 			controle.evenementModele(this, "ajout mur", lesMurs.get(k).getLabel().getjLabel()); //exploiter l'evenement  );
-			
 		}
 	}
-
 	@Override
 	public void setConnection(Connection connection) {
 		lesJoueurs.put(connection, new Joueur(this));
-			controle.evenementModele(this,"envoi panel murs",connection);//à revoir.
 	}
-
 	@Override
 	public void reception(Connection connection, Object info) { 
 		String[] infos = ((String)info).split(SEPARE);//tableau
 		switch(Integer.parseInt(infos[0])){
-		case PSEUDO ://
-			controle.evenementModele(this, "envoi panel murs", connection);//'un nouveau client vient d'envoyer le choix de son pseudo et du numéro de personnage
+		case PSEUDO :
+			controle.evenementModele(this,"envoi panel murs",connection);
 			lesJoueurs.get(connection).initPerso(infos[1], Integer.parseInt(infos[2]), lesJoueurs, lesMurs);
-			
 			break;
 		}
 	}
-
 	@Override
 	public void deconnection(Connection connection) {
 		// TODO Auto-generated method stub
 		
 	}
-		//c'est le jeu serveur qui doit solliciter le controleur pour ajouter un joueur dans la vue
 	//Cette méthode va donc envoyer vers le controleur soit le
-	//Label du personnage, soit le Label du message.
+	//label du personnage, soit le Label du message.
 	public void nouveauLabelJeu(Label label){
-		controle.evenementModele(this,"ajout joueur", label);
-		
+		controle.evenementModele(this,"ajout joueur", label.getjLabel());
 	}
 
 }
