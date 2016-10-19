@@ -103,7 +103,10 @@ public class Controle implements Global {
 		}
 		if(ordre == "envoi panel murs"){
 			((JeuServeur)leJeu).envoi((Connection)info, frmArene.getJpnMurs());
-		}	
+		}
+		if(ordre=="ajout joueur"){
+			frmArene.ajoutJoueur((JLabel) info);
+		}
 		
 	}
 
