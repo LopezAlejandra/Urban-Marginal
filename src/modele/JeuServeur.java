@@ -35,9 +35,9 @@ public class JeuServeur extends Jeu implements Global{
 	public void reception(Connection connection, Object info) { 
 		String[] infos = ((String)info).split(SEPARE);//tableau
 		switch(Integer.parseInt(infos[0])){
-		case PSEUDO :
+		case PSEUDO ://
 			controle.evenementModele(this, "envoi panel murs", connection);//'un nouveau client vient d'envoyer le choix de son pseudo et du numéro de personnage
-			lesJoueurs.get(connection).initPerso(infos[1], Integer.parseInt(infos[2]));
+			lesJoueurs.get(connection).initPerso(infos[1], Integer.parseInt(infos[2]), lesJoueurs, lesMurs);
 			
 			break;
 		}
@@ -46,6 +46,13 @@ public class JeuServeur extends Jeu implements Global{
 	@Override
 	public void deconnection(Connection connection) {
 		// TODO Auto-generated method stub
+		
+	}
+		//c'est le jeu serveur qui doit solliciter le controleur pour ajouter un joueur dans la vue
+	//Cette méthode va donc envoyer vers le controleur soit le
+	//Label du personnage, soit le Label du message.
+	public void nouveauLabelJeu(Label label){
+		controle.evenementModele(this,"ajout joueur", label);
 		
 	}
 
