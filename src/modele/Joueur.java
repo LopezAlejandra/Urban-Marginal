@@ -84,6 +84,8 @@ public class Joueur extends Objet implements Global {
 		message.getjLabel().setBounds(posX-10, posY, L_PERSO+0, H_MESSAGE);
 		message.getjLabel().setText(pseudo+" : "+vie);
 		
+		this.jeuServeur.envoi(super.label);//envoie les labels du joueur à tout le monde
+		this.jeuServeur.envoi(this.message);
 	}
 	
 }
