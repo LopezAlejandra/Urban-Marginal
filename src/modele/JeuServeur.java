@@ -48,4 +48,12 @@ public class JeuServeur extends Jeu implements Global{
 		controle.evenementModele(this,"ajout joueur", label.getjLabel());
 	}
 
+
+	public void envoi(Object info) {
+		for(Connection uneConnection:lesJoueurs.keySet()){
+			super.envoi(uneConnection, info);
+		}
+		
+	}
+
 }
