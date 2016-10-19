@@ -11,7 +11,7 @@ public class JeuServeur extends Jeu implements Global{
 	//Le Hashtable va permettre de gérer un dictionnaire, avec une clé qui sera de type Connection.
 	private Hashtable <Connection, Joueur> lesJoueurs=new Hashtable<Connection, Joueur>();
 	private ArrayList<Mur> lesMurs=new ArrayList<Mur>();//collection des murs
-	
+	//constructeur
 	public JeuServeur(Controle controle) {
 		super.controle = controle;
 		Label.setNbLabel(0);
