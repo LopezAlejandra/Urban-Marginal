@@ -5,8 +5,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controleur.Global;
-
-
+import java.awt.event.KeyEvent;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
@@ -24,12 +23,13 @@ public class Arene extends JFrame implements Global {
 
 	private JTextArea txtChat;
 	private JTextField txtSaisie;
-	private boolean client;
+	private boolean client;//Cette propriété permettra de savoir si c'est l'arène du client ou non.
 	/**
 	 * Create the frame.
 	 */
-	public Arene() {
-		
+	public Arene(String typeJeu) {
+		this.client = (typeJeu == "client");
+			
 		setTitle("Arena");//titre de la fenêtre.
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100,100,L_ARENE+3*MARGE,H_ARENE+H_CHAT);
@@ -37,6 +37,7 @@ public class Arene extends JFrame implements Global {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
+		
 		
 		 jpnJeu = new JPanel();
 		jpnJeu.setBounds(0, 0, L_ARENE,H_ARENE);
@@ -55,9 +56,11 @@ public class Arene extends JFrame implements Global {
 		lblFond.setIcon(new ImageIcon(FONDARENE));
 		contentPane.add(lblFond);
 		
+		if (client) {
 		txtSaisie = new JTextField();
 		txtSaisie.setBounds(0, H_ARENE, L_ARENE, H_SAISIE);
 		contentPane.add(txtSaisie);
+		}
 		
 		JScrollPane jspChat = new JScrollPane();
 		jspChat.setBounds(0, H_ARENE+H_SAISIE,L_ARENE,H_CHAT-H_SAISIE - 7 *MARGE);
@@ -68,6 +71,11 @@ public class Arene extends JFrame implements Global {
 		jspChat.setViewportView(txtChat);
 	}
 	
+	protected void contentPane_keyPressed(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	public void ajoutMur(JLabel unMur){
 		jpnMurs.add(unMur); 
 		jpnMurs.repaint();
