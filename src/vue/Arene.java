@@ -22,10 +22,14 @@ public class Arene extends JFrame implements Global {
 	private JPanel jpnMurs;
 	private JPanel jpnJeu ;
 
+	private JTextArea txtChat;
+	private JTextField txtSaisie;
+
 	/**
 	 * Create the frame.
 	 */
 	public Arene() {
+		
 		setTitle("Arena");//titre de la fenêtre.
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100,100,L_ARENE+3*MARGE,H_ARENE+H_CHAT);
@@ -51,12 +55,16 @@ public class Arene extends JFrame implements Global {
 		lblFond.setIcon(new ImageIcon(FONDARENE));
 		contentPane.add(lblFond);
 		
+		txtSaisie = new JTextField();
+		txtSaisie.setBounds(0, H_ARENE, L_ARENE, H_SAISIE);
+		contentPane.add(txtSaisie);
+		
 		JScrollPane jspChat = new JScrollPane();
 		jspChat.setBounds(0, H_ARENE+H_SAISIE,L_ARENE,H_CHAT-H_SAISIE - 7 *MARGE);
 		contentPane.add(jspChat);
 		jspChat.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		
-		JTextArea txtChat = new JTextArea();
+		 txtChat = new JTextArea();
 		jspChat.setViewportView(txtChat);
 	}
 	
@@ -81,13 +89,17 @@ public class Arene extends JFrame implements Global {
 		
 	}
 	
-	public void ajoutModifJoueur(int num, JLabel unLabel){
-		try {
+
+
+	public void ajoutModifJoueur(int num, JLabel unLabel) {
+		try { 
 			this.jpnJeu.remove(num);
-		} catch (ArrayIndexOutOfBoundsException ex) {}
+		} 
+		catch (ArrayIndexOutOfBoundsException e) {}
 		this.jpnJeu.add(unLabel, num);
 		this.jpnJeu.repaint();
+	
 		
 	}
-	
+
 }
