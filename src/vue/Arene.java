@@ -9,8 +9,6 @@ import controleur.Global;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -138,8 +136,8 @@ public class Arene extends JFrame implements Global {
 			txtChat.setText(unePhrase+"\r\n"+txtChat.getText());
 	}
 
-	public JTextArea getTxtChat() {
-		return txtChat;
+	public String getTxtChat() {
+		return txtChat.getText();
 	}
 
 	public void remplaceChat(String remplaceTxtChat){
