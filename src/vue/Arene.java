@@ -103,6 +103,10 @@ public class Arene extends JFrame implements Global {
 			contentPane.requestFocus();
 		}	
 	}
+	//Méthode qui teste le type de touche utilisé, et l'envoi au serveur. 
+	private void contentPane_keyPressed(KeyEvent arg0){
+		
+	}
 	
 	
 	public void ajoutMur(JLabel unMur){
