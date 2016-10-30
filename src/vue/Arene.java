@@ -42,9 +42,17 @@ public class Arene extends JFrame implements Global {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
+		if(client){
+			contentPane.addKeyListener(new KeyAdapter() {
+				@Override
+				public void keyPressed(KeyEvent arg0) {
+					contentPane_keyPressed(arg0);
+				}
+			});
+		}
 		
 		
-		 jpnJeu = new JPanel();
+		jpnJeu = new JPanel();
 		jpnJeu.setBounds(0, 0, L_ARENE,H_ARENE);
 		jpnJeu.setLayout(null);
 		contentPane.add(jpnJeu);
