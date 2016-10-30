@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import controleur.Controle;
 import controleur.Global;
 
 import java.awt.event.KeyAdapter;
@@ -29,12 +30,13 @@ public class Arene extends JFrame implements Global {
 	private JTextArea txtChat;
 	private JTextField txtSaisie;
 	private boolean client;//Cette propriété permettra de savoir si c'est l'arène du client ou non.
+	private Controle controle;//instance de Controle.
 	/**
 	 * Create the frame.
 	 */
-	public Arene(String typeJeu) {
+	public Arene(String typeJeu,Controle controle) {
 		this.client = (typeJeu == "client");//true si typeJeu contient "client"
-			
+		this.controle=controle;	
 		setTitle("Arena");//titre de la fenêtre.
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100,100,L_ARENE+3*MARGE,H_ARENE+H_CHAT);

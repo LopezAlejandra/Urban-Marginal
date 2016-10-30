@@ -53,14 +53,14 @@ public class Controle implements Global {
 			new ServeurSocket(this,PORT);//this est l'instance actuelle de Controle.
 			leJeu= new JeuServeur(this);//Un jeu de type serveur va ainsi être créé.
 			frmEntreeJeu.dispose();//La frame d'entrée peut être fermée.
-			frmArene=new Arene("serveur");
+			frmArene=new Arene("serveur",this);
 			((JeuServeur) this.leJeu).constructionMurs();
 			frmArene.setVisible(true);
 		}
 		else{
 			if((new ClientSocket((String)info,PORT,this)).getConnexionOk()){//Creation d'un objet en lui appliquant une méthode
 			leJeu=new JeuClient(this);
-			frmArene=new Arene("client");
+			frmArene=new Arene("client",this);
 			leJeu.setConnection(connection);//Pour que le client puisse envoyer des informations
 											//au serveur.
 			
