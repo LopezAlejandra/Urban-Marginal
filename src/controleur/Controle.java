@@ -86,8 +86,7 @@ public class Controle implements Global {
 	}
 	
 	private void evenementArene(Object info) {
-		// TODO Auto-generated method stub
-		
+		((JeuClient)this.leJeu).envoi(info);
 	}
 	
 	private void evenementJeuClient(String ordre, Object info) {
