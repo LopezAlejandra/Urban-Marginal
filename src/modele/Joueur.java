@@ -17,6 +17,12 @@ public class Joueur extends Objet implements Global {
 	private int vie;//vie restante du joueur
 	private int orientation;//tourné vers la gauche
 	private int etape;//numéro d'étape dans l'animation
+	private Boule boule;
+	
+	public Boule getBoule() {
+		return boule;
+	}
+
 	
 	protected Label getMessage() {
 		return message;
