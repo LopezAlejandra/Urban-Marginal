@@ -33,6 +33,8 @@ public interface Global {
 	public static final int	L_MUR = 34; //
 	public static final int H_MESSAGE=8;
 	public static final int CHAT=1;
-	
-	
+	public static final int HAUT=2;
+	public static final int BAS=3;
+	public static final int TIRE=4;//pour gérer le tir d'une boule
+	public static final int ACTION=2;//pour que le serveur puisse traiter une action.
 }
