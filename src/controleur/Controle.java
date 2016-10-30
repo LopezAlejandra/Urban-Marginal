@@ -110,6 +110,7 @@ public class Controle implements Global {
 		}
 		if(ordre=="ajout phrase"){
 			frmArene.ajoutChat((String) info);
+			((JeuServeur)leJeu).envoi(frmArene.getTxtChat());
 		}
 	}
 	
