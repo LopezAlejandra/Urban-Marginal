@@ -95,6 +95,9 @@ public class Controle implements Global {
 		}
 		if (ordre == "ajout joueur") {
 			frmArene.ajoutModifJoueur( ((Label) info).getNumLabel(), ((Label) info).getjLabel());
+		}
+		if (ordre == "remplace chat") {
+			frmArene.remplaceChat(((String)info));
 			}
 	}
 	
