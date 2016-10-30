@@ -42,6 +42,7 @@ public class JeuServeur extends Jeu implements Global{
 		}
 			lesJoueurs.get(connection).initPerso(infos[1], Integer.parseInt(infos[2]), lesJoueurs, lesMurs);
 			this.lesJoueursDanslordre.add(this.lesJoueurs.get(connection)) ; //Insére ce nouveau joueur dans la collection lesJoueursDanslordre
+			controle.evenementModele(this, "ajout phrase", "*** "+lesJoueurs.get(connection).getPseudo()+" vient de se connecter ***");
 			break;
 		case CHAT:
 			laPhrase=lesJoueurs.get(connection).getPseudo()+ " > " + infos[1];
