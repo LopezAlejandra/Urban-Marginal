@@ -48,6 +48,9 @@ public class JeuServeur extends Jeu implements Global{
 			laPhrase=lesJoueurs.get(connection).getPseudo()+ " > " + infos[1];
 			controle.evenementModele(this, "ajout phrase", laPhrase);
 			break;
+		case ACTION:
+			lesJoueurs.get(connection).action(Integer.parseInt(infos[1]), lesJoueurs, lesMurs);
+			break;
 		}
 	}
 	@Override
