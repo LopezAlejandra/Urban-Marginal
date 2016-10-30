@@ -142,7 +142,7 @@ public class Joueur extends Objet implements Global {
 			break;
 		}
 		affiche(MARCHE,etape);// afin qu'après l'action, le personnage soit réaffiché et envoyé à tous. La 
-		
+		//Le déplacement et les collisions finis
 		
 	}
 	
