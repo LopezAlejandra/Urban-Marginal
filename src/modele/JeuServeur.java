@@ -12,6 +12,7 @@ public class JeuServeur extends Jeu implements Global{
 	private Hashtable <Connection, Joueur> lesJoueurs=new Hashtable<Connection, Joueur>();
 	private ArrayList<Mur> lesMurs=new ArrayList<Mur>();//collection des murs
 	private ArrayList <Joueur>lesJoueursDanslordre=new ArrayList<Joueur>(); ;
+	private String laPhrase;
 	//constructeur
 	public JeuServeur(Controle controle) {
 		super.controle = controle;
@@ -41,6 +42,10 @@ public class JeuServeur extends Jeu implements Global{
 		}
 			lesJoueurs.get(connection).initPerso(infos[1], Integer.parseInt(infos[2]), lesJoueurs, lesMurs);
 			this.lesJoueursDanslordre.add(this.lesJoueurs.get(connection)) ; //Insére ce nouveau joueur dans la collection lesJoueursDanslordre
+			break;
+		case CHAT:
+			laPhrase=lesJoueurs.get(connection).getPseudo()+ " > " + infos[1];
+			controle.evenementModele(this, "ajout phrase", laPhrase);
 			break;
 		}
 	}
