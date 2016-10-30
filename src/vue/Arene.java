@@ -97,9 +97,8 @@ public class Arene extends JFrame implements Global {
 			contentPane.requestFocus();
 		}	
 	}
-
 	
-
+	
 	public void ajoutMur(JLabel unMur){
 		jpnMurs.add(unMur); 
 		jpnMurs.repaint();
@@ -133,5 +132,11 @@ public class Arene extends JFrame implements Global {
 	
 		
 	}
+	
+	//Méthode qui va permettre de mettre à jour la zone d'affichage de la conversation
+	public void ajoutChat(String unePhrase){
+			txtChat.setText(unePhrase+"\r\n"+txtChat.getText());
+	}
+
 
 }
