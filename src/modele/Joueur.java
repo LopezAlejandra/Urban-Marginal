@@ -10,6 +10,7 @@ import outils.connexion.Connection;
 
 public class Joueur extends Objet implements Global {
 	private String pseudo ;
+	
 	private int numPerso;
 	private Label message;// pour l'affichage du pseudo et de la vie
 	private JeuServeur jeuServeur;
@@ -87,6 +88,11 @@ public class Joueur extends Objet implements Global {
 		this.jeuServeur.envoi(super.label);//envoie les labels du joueur à tout le monde
 		this.jeuServeur.envoi(message);
 	}
+	
+	public String getPseudo() {
+		return pseudo;
+	}
+
 	
 }
 	
