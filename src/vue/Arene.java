@@ -5,7 +5,12 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controleur.Global;
+
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
@@ -57,10 +62,20 @@ public class Arene extends JFrame implements Global {
 		contentPane.add(lblFond);
 		
 		if (client) {//Si client==true : affichage de la zone de saisie seulement dans la partie client
-		txtSaisie = new JTextField();
-		txtSaisie.setBounds(0, H_ARENE, L_ARENE, H_SAISIE);
-		contentPane.add(txtSaisie);
+			txtSaisie = new JTextField();
+			
+			txtSaisie.setBounds(0, H_ARENE, L_ARENE, H_SAISIE);
+			contentPane.add(txtSaisie);
+			//envoi de la phrase au serveur
+			txtSaisie.addKeyListener(new KeyAdapter() {
+				@Override
+				public void keyPressed(KeyEvent arg0) {
+					txtSaisie_keyPressed(arg0);
+				}
+			});
+			
 		}
+		
 		
 		JScrollPane jspChat = new JScrollPane();
 		jspChat.setBounds(0, H_ARENE+H_SAISIE,L_ARENE,H_CHAT-H_SAISIE - 7 *MARGE);
@@ -71,6 +86,11 @@ public class Arene extends JFrame implements Global {
 		jspChat.setViewportView(txtChat);
 	}
 	
+	protected void txtSaisie_keyPressed(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	protected void contentPane_keyPressed(KeyEvent arg0) {
 		// TODO Auto-generated method stub
 		
