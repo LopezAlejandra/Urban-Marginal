@@ -28,7 +28,7 @@ public class Arene extends JFrame implements Global {
 	 * Create the frame.
 	 */
 	public Arene(String typeJeu) {
-		this.client = (typeJeu == "client");
+		this.client = (typeJeu == "client");//true si typeJeu contient "client"
 			
 		setTitle("Arena");//titre de la fenêtre.
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -56,7 +56,7 @@ public class Arene extends JFrame implements Global {
 		lblFond.setIcon(new ImageIcon(FONDARENE));
 		contentPane.add(lblFond);
 		
-		if (client) {
+		if (client) {//Si client==true : affichage de la zone de saisie seulement dans la partie client
 		txtSaisie = new JTextField();
 		txtSaisie.setBounds(0, H_ARENE, L_ARENE, H_SAISIE);
 		contentPane.add(txtSaisie);

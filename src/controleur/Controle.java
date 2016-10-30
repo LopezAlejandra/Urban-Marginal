@@ -1,4 +1,5 @@
 package controleur;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import modele.Label;
 import javax.swing.JPanel;
@@ -29,14 +30,17 @@ public class Controle implements Global {
 		frmEntreeJeu.setVisible(true);//rend visible la frame	
 	}
 	
-	public void evenementVue(Object uneFrame, Object info){//permet de récupérer et traiter les événements provenant de la vue.
+	public void evenementVue(JFrame uneFrame, Object info){//permet de récupérer et traiter les événements provenant de la vue.
 		if (uneFrame instanceof EntreeJeu){
 			evenementEntreeJeu(info);
 		}
 		if(uneFrame instanceof ChoixJoueur){
 			evenementChoixJoueur(info);
 		}
+		
 	}
+	
+	
 	
 	private void evenementEntreeJeu(Object info) {//Démarrer un jeu serveur ou un jeu client
 		
@@ -44,21 +48,23 @@ public class Controle implements Global {
 			new ServeurSocket(this,PORT);//this est l'instance actuelle de Controle.
 			leJeu= new JeuServeur(this);//Un jeu de type serveur va ainsi être créé.
 			frmEntreeJeu.dispose();//La frame d'entrée peut être fermée.
-			frmArene=new Arene();
-			((JeuServeur) leJeu).constructionMurs();
+			frmArene=new Arene("serveur");
+			((JeuServeur) this.leJeu).constructionMurs();
 			frmArene.setVisible(true);
 		}
 		else{
-			(new ClientSocket((String)info,PORT,this)).getConnexionOk();//Creation d'un objet en lui appliquant une méthode
+			if((new ClientSocket((String)info,PORT,this)).getConnexionOk()){//Creation d'un objet en lui appliquant une méthode
 			leJeu=new JeuClient(this);
+			frmArene=new Arene("client");
 			leJeu.setConnection(connection);//Pour que le client puisse envoyer des informations
 											//au serveur.
-			frmArene=new Arene();
-			frmArene.dispose();
+			
+			frmEntreeJeu.dispose();
 			frmChoixJoueur=new ChoixJoueur(this);
 			frmChoixJoueur.setVisible(true);
 		}
-		System.out.println((String)info);
+		}
+		
 	}
 	private void evenementChoixJoueur(Object info){
 		((JeuClient)leJeu).envoi(info);
@@ -78,9 +84,9 @@ public class Controle implements Global {
 		if(ordre=="ajout panel murs"){
 			frmArene.ajoutPanelMurs((JPanel)info);
 		}
-		if(ordre=="ajout joueur"){
-			frmArene.ajoutModifJoueur(((Label)info).getNumLabel(), ((Label)info).getjLabel());
-		}
+		if (ordre == "ajout joueur") {
+			frmArene.ajoutModifJoueur( ((Label) info).getNumLabel(), ((Label) info).getjLabel());
+			}
 	}
 	
 	private void evenementJeuServeur(String ordre, Object info) {
@@ -96,7 +102,7 @@ public class Controle implements Global {
 	}
 	
 	public void receptionInfo(Connection connection, Object info){
-		leJeu.reception(connection, info);
+		this.leJeu.reception(connection, info);
 	}
 	
 	public void setConnection(Connection connection){
