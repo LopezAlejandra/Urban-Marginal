@@ -92,8 +92,37 @@ public class Joueur extends Objet implements Global {
 	public String getPseudo() {
 		return pseudo;
 	}
-
+	//méthode qui standarise le déplacement
+	private int deplace(int action, int position, int orientation, 
+					int lepas, int max, Hashtable<Connection,Joueur> lesJoueurs,
+					ArrayList<Mur> lesMurs ){
+	this.orientation=orientation;//(l'orientation va changer si les flèches gauche ou droite ont été utilisées
+	int ancpos=position;// revient à l'ancienne position si la nouvelle n'est pas bonne 
+	position=position+lepas;//permet un déplacement dans un sens ou l'autre
+	 //il faut contrôler si on ne sort pas de l'arène
+	if (position<0){
+		position=0;
+	}
+	if(position>max){
+		position=max;
+	}
 	
+	if (action==GAUCHE||action==DROITE){
+		super.posX=position;
+		
+	}
+	else{
+		super.posY=position;
+	}
+	if(this.toucheMur(lesMurs)||this.toucheJoueur(lesJoueurs)){
+		position=ancpos;
+	}
+	etape++;
+	if(etape== NBETATSMARCHE){
+		etape= 1;
+	}
+	return position;
+	}
 }
 	
 	
