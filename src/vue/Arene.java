@@ -106,7 +106,6 @@ public class Arene extends JFrame implements Global {
 	//Méthode qui teste le type de touche utilisé, et l'envoi au serveur. 
 	private void contentPane_keyPressed(KeyEvent arg0){
 		int valeur=-1;
-		
 		switch (arg0.getKeyCode()){
 		case KeyEvent.VK_SPACE:
 			valeur=TIRE;
@@ -124,7 +123,7 @@ public class Arene extends JFrame implements Global {
 			valeur=HAUT;
 			break;
 		}
-		if(valeur!=-1){
+		if(valeur!=-1){//controle le contenu de valeur (Déplacements côté client)
 			controle.evenementVue(this, ACTION+SEPARE+valeur);
 		}
 	}
