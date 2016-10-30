@@ -138,5 +138,11 @@ public class Arene extends JFrame implements Global {
 			txtChat.setText(unePhrase+"\r\n"+txtChat.getText());
 	}
 
+	public JTextArea getTxtChat() {
+		return txtChat;
+	}
 
+	public void remplaceChat(String remplaceTxtChat){
+		txtChat.setText(remplaceTxtChat);
+	}
 }
