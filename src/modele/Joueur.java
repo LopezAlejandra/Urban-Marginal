@@ -52,6 +52,9 @@ public class Joueur extends Objet implements Global {
 		premierePosition(lesJoueurs, lesMurs);
 		
 		affiche(MARCHE,etape);
+		
+		boule=new Boule(jeuServeur);
+		jeuServeur.envoi(boule.label);
 	}
 
 	private boolean toucheJoueur( Hashtable <Connection, Joueur> lesJoueurs){//reçoit en
