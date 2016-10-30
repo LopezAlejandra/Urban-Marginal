@@ -24,7 +24,7 @@ public class Arene extends JFrame implements Global {
 
 	private JTextArea txtChat;
 	private JTextField txtSaisie;
-
+	private boolean client;
 	/**
 	 * Create the frame.
 	 */
