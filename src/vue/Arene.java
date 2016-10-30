@@ -89,10 +89,10 @@ public class Arene extends JFrame implements Global {
 	}
 	
 	private void txtSaisie_keyPressed(KeyEvent arg0) {
-		if (arg0.getKeyCode() == KeyEvent.VK_ENTER) {
-			if (txtSaisie.getText() != "") {
+		if (arg0.getKeyCode() == KeyEvent.VK_ENTER) {//Retourne le code de la touche
+			if (txtSaisie.getText() != "") {//Controle si la zone de saisie n'est pas vide
 				controle.evenementVue(this, CHAT + SEPARE + txtSaisie.getText());
-				txtSaisie.setText("");
+				txtSaisie.setText("");//vide le contenu de txtSaisie
 			}
 			contentPane.requestFocus();
 		}	
