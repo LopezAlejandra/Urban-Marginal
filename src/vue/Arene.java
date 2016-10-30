@@ -88,15 +88,17 @@ public class Arene extends JFrame implements Global {
 		jspChat.setViewportView(txtChat);
 	}
 	
-	protected void txtSaisie_keyPressed(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	private void txtSaisie_keyPressed(KeyEvent arg0) {
+		if (arg0.getKeyCode() == KeyEvent.VK_ENTER) {
+			if (txtSaisie.getText() != "") {
+				controle.evenementVue(this, CHAT + SEPARE + txtSaisie.getText());
+				txtSaisie.setText("");
+			}
+			contentPane.requestFocus();
+		}	
 	}
 
-	protected void contentPane_keyPressed(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	public void ajoutMur(JLabel unMur){
 		jpnMurs.add(unMur); 
