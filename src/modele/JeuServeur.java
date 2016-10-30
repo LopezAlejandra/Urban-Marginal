@@ -35,7 +35,7 @@ public class JeuServeur extends Jeu implements Global{
 		case PSEUDO :
 			controle.evenementModele(this,"envoi panel murs",connection);
 			lesJoueurs.get(connection).initPerso(infos[1], Integer.parseInt(infos[2]), lesJoueurs, lesMurs);
-			
+			this.lesJoueursDanslordre.add(this.lesJoueurs.get(connection)) ; //Insére ce nouveau joueur dans la collection lesJoueursDanslordre
 			break;
 		}
 	}
