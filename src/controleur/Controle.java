@@ -108,6 +108,9 @@ public class Controle implements Global {
 		if(ordre=="ajout joueur"){
 			frmArene.ajoutJoueur((JLabel) info);
 		}
+		if(ordre=="ajout phrase"){
+			frmArene.ajoutChat((String) info);
+		}
 	}
 	
 	public void receptionInfo(Connection connection, Object info){
