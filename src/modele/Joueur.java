@@ -25,20 +25,20 @@ public class Joueur extends Objet implements Global {
 		this.jeuServeur=jeuServeur;
 		this.vie=10;
 		this.etape=1;
-		this.orientation=1;//Droite
+		this.orientation=DROITE;//Droite
 	}
 	
 	
 	public void initPerso(String unPseudo, int unNumero,Hashtable<Connection,Joueur>lesJoueurs,ArrayList <Mur>lesMurs ){
 		this.pseudo=unPseudo;
 		this.numPerso=unNumero;
-		label=new Label(Label.getNbLabel()+1,new JLabel());//contient le personnage
+		label=new Label(Label.getNbLabel(),new JLabel());//contient le personnage
 		Label.setNbLabel(Label.getNbLabel() + 1);
 		jeuServeur.nouveauLabelJeu(label);
 		label.getjLabel().setHorizontalAlignment(SwingConstants.CENTER);
 		label.getjLabel().setVerticalAlignment(SwingConstants.CENTER);
 		
-		message = new Label(Label.getNbLabel()+1, new JLabel());
+		  message = new Label(Label.getNbLabel(), new JLabel());
 		message.getjLabel().setHorizontalAlignment(SwingConstants.CENTER);
 		message.getjLabel().setFont(new Font("Dialog", Font.PLAIN, 8));
 		jeuServeur.nouveauLabelJeu(message);
@@ -81,11 +81,11 @@ public class Joueur extends Objet implements Global {
 	public void affiche(String etat,int etape){//String qui contiendra l'état d'un joueur (marche,blessé,mort) et entier qui contiendra le num d'etape
 		label.getjLabel().setBounds(posX, posY, L_PERSO, H_PERSO);
 		label.getjLabel().setIcon(new ImageIcon(PERSO+this.numPerso+etat+etape+"d"+orientation+EXTIMAGE));
-		message.getjLabel().setBounds(posX-10, posY, L_PERSO+0, H_MESSAGE);
+		message.getjLabel().setBounds(posX-10, posY+H_PERSO, L_PERSO+20, H_MESSAGE);
 		message.getjLabel().setText(pseudo+" : "+vie);
 		
 		this.jeuServeur.envoi(super.label);//envoie les labels du joueur à tout le monde
-		this.jeuServeur.envoi(this.message);
+		this.jeuServeur.envoi(message);
 	}
 	
 }
