@@ -37,11 +37,16 @@ public class Controle implements Global {
 		if(uneFrame instanceof ChoixJoueur){
 			evenementChoixJoueur(info);
 		}
+		if (uneFrame instanceof Arene){
+			evenementArene(info);
+		}
 		
 	}
 	
 	
 	
+	
+
 	private void evenementEntreeJeu(Object info) {//Démarrer un jeu serveur ou un jeu client
 		
 		if((String) info=="serveur"){
@@ -78,6 +83,11 @@ public class Controle implements Global {
 		if (unJeu instanceof JeuClient){
 			evenementJeuClient(ordre,info);
 		}	
+	}
+	
+	private void evenementArene(Object info) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	private void evenementJeuClient(String ordre, Object info) {
