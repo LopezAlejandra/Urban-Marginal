@@ -177,6 +177,13 @@ public class Joueur extends Objet implements Global {
 		}
 	}
 	
+	public boolean estMort(){
+		if(vie==0){
+			return true;
+		}
+		return false;
+	}
+	
 	
 	
 	
