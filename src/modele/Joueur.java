@@ -54,6 +54,7 @@ public class Joueur extends Objet implements Global {
 		affiche(MARCHE,etape);
 		
 		boule=new Boule(jeuServeur);
+		
 		jeuServeur.envoi(boule.label);
 	}
 
@@ -149,7 +150,7 @@ public class Joueur extends Objet implements Global {
 			break;
 		case TIRE:
 			if(!boule.getLabel().getjLabel().isVisible()){
-			boule.tireBoule(this,lesMurs);
+			boule.tireBoule(this,lesMurs,lesJoueurs);
 			}
 			break;
 		}

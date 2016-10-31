@@ -1,11 +1,14 @@
 package modele;
+
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import controleur.Global;
+import outils.connexion.Connection;
 public class Boule extends Objet implements Global {
 	private JeuServeur jeuServeur;
 	
@@ -22,14 +25,14 @@ public class Boule extends Objet implements Global {
 		jeuServeur.nouveauLabelJeu(super.label);//Ainsi le JLabel sera ajoutè au JPanel de Serveur
 	}
 	
-	public void tireBoule(Joueur attaquant, ArrayList<Mur>lesMurs){
+	public void tireBoule(Joueur attaquant, ArrayList<Mur>lesMurs,Hashtable<Connection, Joueur> lesJoueurs){
 		if(attaquant.getOrientation()==GAUCHE){
 			attaquant.getBoule().setPosX(attaquant.getPosX()-L_BOULE-1);
 		}else{
-			attaquant.getBoule().setPosX(attaquant.getPosX()+L_BOULE+1);
+			attaquant.getBoule().setPosX(attaquant.getPosX()+L_PERSO+1);
 		}
 		attaquant.getBoule().setPosY(attaquant.getPosY()+H_PERSO/2);
-		new Attaque(attaquant, jeuServeur,lesMurs);
+		new Attaque(attaquant, jeuServeur,lesMurs,lesJoueurs);
 	}
 	
 	
