@@ -1,13 +1,13 @@
 package vue;
 
-import java.awt.BorderLayout;
 import java.awt.Cursor;
-import java.awt.Rectangle;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import controleur.Controle;
 import controleur.Global;
+import outils.son.Son;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -20,7 +20,6 @@ import javax.swing.border.EmptyBorder;
 
 
 public class ChoixJoueur extends JFrame implements Global  {
-	
 	/**
 	 * 
 	 */
@@ -31,7 +30,10 @@ public class ChoixJoueur extends JFrame implements Global  {
 	private JLabel lblPersonnage;
 	private int numPerso;
 	private Controle controle;
-	
+	private Son precedent;
+	private Son suivant;
+	private Son go;
+	private Son welcome;
 
 	/**
 	 * This is the default constructor
@@ -134,7 +136,11 @@ public class ChoixJoueur extends JFrame implements Global  {
 	numPerso = 1;
 	affichePerso();
 	
-	
+	precedent=new Son (SONPRECEDENT);
+	suivant=new Son(SONSUIVANT);
+	go=new Son(SONGO);
+	welcome =new Son(SONWELCOME);
+	welcome.play();
 }
 	
 	private void affichePerso(){
