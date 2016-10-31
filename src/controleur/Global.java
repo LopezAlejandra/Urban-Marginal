@@ -44,5 +44,11 @@ public interface Global {
 	public static final String CHEMINBOULES=CHEMIN+"boules"+SEPARATOR;
 	public static final String BOULE=CHEMINBOULES+"boule.gif";
 	public static final int NBETATSBLESSE=2;
-	public static final int NBETATSMORT=2;
+	public static final int NBETATSMORT=3;
+	public static final String CHEMINSONS = CHEMIN + "sons/";
+	public static final String SONPRECEDENT = CHEMINSONS + "precedent.wav" ; // sur le clic du bouton précédent 
+	public static final String SONSUIVANT = CHEMINSONS + "suivant.wav"; // sur le clic du bouton suivant 
+	public static final String SONGO = CHEMINSONS + "go.wav"; // sur le clic du bouton go 
+	public static final String SONWELCOME = CHEMINSONS + "welcome.wav"; // à l'entrée de la frame ChoixJoueur 
+	public static final String SONAMBIANCE = CHEMINSONS + "ambiance.wav"; // son d'ambiance dans tout le jeu
 }
