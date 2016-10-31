@@ -21,6 +21,12 @@ public class Boule extends Objet implements Global {
 	}
 	
 	public void tireBoule(Joueur attaquant){
-		
+		if(attaquant.getOrientation()==GAUCHE){
+			attaquant.getBoule().setPosX(attaquant.getPosX()-L_BOULE-1);
+		}else{
+			attaquant.getBoule().setPosX(attaquant.getPosX()+L_BOULE+1);
+		}
+		attaquant.getBoule().setPosY(attaquant.getPosY()+H_PERSO/2);
+		new Attaque(attaquant, jeuServeur);
 	}
 }
