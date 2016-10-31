@@ -51,4 +51,8 @@ public interface Global {
 	public static final String SONGO = CHEMINSONS + "go.wav"; // sur le clic du bouton go 
 	public static final String SONWELCOME = CHEMINSONS + "welcome.wav"; // à l'entrée de la frame ChoixJoueur 
 	public static final String SONAMBIANCE = CHEMINSONS + "ambiance.wav"; // son d'ambiance dans tout le jeu
+	public static final int FIGHT=0;
+	public static final int HURT=1;
+	public static final int DEATH=2;
+	public static final String[]SON={"fight.wav", "hurt.wav", "death.wav"} ;
 }
