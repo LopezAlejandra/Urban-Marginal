@@ -148,6 +148,7 @@ public class Joueur extends Objet implements Global {
 			posY = deplace(action, super.posY, orientation, LEPAS, H_ARENE-(H_PERSO+H_MESSAGE),lesJoueurs, lesMurs);
 			break;
 		case TIRE:
+			boule.tireBoule(this);
 			break;
 		}
 		affiche(MARCHE,etape);// afin qu'après l'action, le personnage soit réaffiché et envoyé à tous. La 
