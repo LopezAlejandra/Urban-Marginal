@@ -127,6 +127,9 @@ public class Controle implements Global {
 			leJeu.setConnection(connection);
 		}
 	}
+	public void deconnection(Connection connection){
+		leJeu.deconnection(connection);
+	}
 }
 
 
