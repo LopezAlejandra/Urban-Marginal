@@ -17,6 +17,12 @@ public abstract class Objet {
 		return label;
 	}
 	
+	public void setPosX(int posX) {
+		this.posX = posX;
+	}
+	public void setPosY(int posY) {
+		this.posY = posY;
+	}
 	/**
 	* contrôle si l'objet actuel touche l'objet passé en paramètre
 	* @param objet
