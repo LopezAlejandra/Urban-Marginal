@@ -155,6 +155,10 @@ public class Joueur extends Objet implements Global {
 		
 	}
 	
+	public int getOrientation(){
+		return orientation;
+	}
+	
 	
 	
 	
