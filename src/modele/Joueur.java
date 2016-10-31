@@ -34,7 +34,7 @@ public class Joueur extends Objet implements Global {
 
 	public Joueur(JeuServeur jeuServeur){
 		this.jeuServeur=jeuServeur;
-		this.vie=10;
+		this.vie=MAXVIE;
 		this.etape=1;
 		this.orientation=DROITE;//Droite
 	}
@@ -166,7 +166,16 @@ public class Joueur extends Objet implements Global {
 	public int getOrientation(){
 		return orientation;
 	}
-	
+	//Qui ajout gain à la vie
+	public void gainVie(){
+		vie=vie+GAIN;
+	}
+	public void perteVie(){
+		vie=vie-PERTE;
+		if(vie < 0){
+			vie = 0;
+		}
+	}
 	
 	
 	
