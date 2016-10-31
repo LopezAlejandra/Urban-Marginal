@@ -136,11 +136,11 @@ public class ChoixJoueur extends JFrame implements Global  {
 	numPerso = 1;
 	affichePerso();
 	
-	precedent=new Son (SONPRECEDENT);
-	suivant=new Son(SONSUIVANT);
-	go=new Son(SONGO);
-	welcome =new Son(SONWELCOME);
-	welcome.play();
+	this.precedent=new Son (SONPRECEDENT);
+	this.suivant=new Son(SONSUIVANT);
+	this.go=new Son(SONGO);
+	this.welcome =new Son(SONWELCOME);
+	this.welcome.play();
 }
 	
 	private void affichePerso(){
@@ -150,21 +150,24 @@ public class ChoixJoueur extends JFrame implements Global  {
 
 	
 	private void lblPrecedent_clic(){
+		this.precedent.play();
 		this.numPerso = (this.numPerso + NBPERSOS + 1) % NBPERSOS + 1 ;
 		affichePerso();
 	}
 	
 	private void lblSuivant_clic(){
-		
+		this.suivant.play();
 		this.numPerso = this.numPerso%NBPERSOS+1;
 		affichePerso();
 	}
 	
 	private void lblGO_clic(){
+		
 		if(txtPseudo.getText().equals("")){
 			JOptionPane.showMessageDialog(null, "Pseudo obligatoire");
 			txtPseudo.requestFocus();
 		}else{
+			this.go.play();
 			controle.evenementVue(this, PSEUDO+SEPARE+txtPseudo.getText()+SEPARE+numPerso);
 		}
 	}
