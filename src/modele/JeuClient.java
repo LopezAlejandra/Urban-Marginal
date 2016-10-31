@@ -33,6 +33,9 @@ public class JeuClient extends Jeu{
 		if(info instanceof String){//Contrôle si l'objet reçu est de type Label
 			controle.evenementModele(this,"remplace chat",info);
 		}
+		if(info instanceof Integer){
+			controle.evenementModele(this,"son", info);
+		}
 		
 	}
 
