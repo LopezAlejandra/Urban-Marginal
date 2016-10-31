@@ -6,6 +6,7 @@ import javax.swing.border.EmptyBorder;
 
 import controleur.Controle;
 import controleur.Global;
+import outils.son.Son;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -94,6 +95,13 @@ public class Arene extends JFrame implements Global {
 		
 		 txtChat = new JTextArea();
 		jspChat.setViewportView(txtChat);
+		
+		if(client){
+			for(int k=0; k<SON.length;k++){
+				lesSons[k] = new Son(CHEMINSONS+SON[k]);
+			}
+		}
+		
 	}
 	
 	private void txtSaisie_keyPressed(KeyEvent arg0) {
