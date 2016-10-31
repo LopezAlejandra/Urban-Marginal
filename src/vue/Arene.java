@@ -29,6 +29,8 @@ public class Arene extends JFrame implements Global {
 	private JTextField txtSaisie;
 	private boolean client;//Cette propriété permettra de savoir si c'est l'arène du client ou non.
 	private Controle controle;//instance de Controle.
+	private Son[]lesSons=new Son[SON.length];
+	
 	/**
 	 * Create the frame.
 	 */
