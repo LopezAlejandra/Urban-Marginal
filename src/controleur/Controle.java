@@ -99,6 +99,10 @@ public class Controle implements Global {
 		if (ordre == "remplace chat") {
 			frmArene.remplaceChat(((String)info));
 			}
+		
+		if(ordre=="son"){
+			frmArene.joueSon(((int)info));
+		}
 	}
 	
 	private void evenementJeuServeur(String ordre, Object info) {
