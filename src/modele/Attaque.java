@@ -23,12 +23,21 @@ public class Attaque extends Thread implements Global{
 				laboule.setPosX(laboule.getPosX()+LEPAS);
 			}
 			laboule.label.getjLabel().setBounds(laboule.getPosX(), laboule.getPosY(), L_BOULE, H_BOULE);
+			this.pause(10);
 			jeuServeur.envoi(laboule.getLabel());//envoi de la position à tous les joueurs
 			
 		}
 		while(laboule.getPosX()>0 &&laboule.getPosX()<L_ARENE);
 		laboule.getLabel().getjLabel().setVisible(false);
 		jeuServeur.envoi(laboule.getLabel());
+	}
+	public void pause(long milli){
+		try {
+			sleep(milli);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 }
