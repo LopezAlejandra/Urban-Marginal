@@ -9,9 +9,9 @@ import controleur.Global;
 import outils.connexion.Connection;
 
 public class Joueur extends Objet implements Global {
-	private static final int MAXVIE=10;
-	private static final int GAIN=1;
-	private static final int PERTE=2;
+	private static final int MAXVIE=10;//vie de départ pour tous les joueurs
+	private static final int GAIN=1;//gain de points lors d'une attaque
+	private static final int PERTE=2;//perte de points lors d'une attaque
 	
 	private String pseudo ;
 	
