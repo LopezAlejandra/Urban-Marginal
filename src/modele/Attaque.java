@@ -23,6 +23,7 @@ public class Attaque extends Thread implements Global{
 	}
 	
 	public void run(){
+		attaquant.affiche(MARCHE, 1);
 		Boule laboule=attaquant.getBoule();
 		int orientation=attaquant.getOrientation();
 		laboule.label.getjLabel().setVisible(true);
@@ -41,11 +42,14 @@ public class Attaque extends Thread implements Global{
 		
 		while(laboule.getPosX()>0 &&laboule.getPosX()<L_ARENE && toucheMur()==false && victime==null);
 		if(victime!=null){
+			victime.perteVie();
+			attaquant.gainVie();
 			for(int i=1; i < NBETATSBLESSE; i++){
 				victime.affiche(BLESSE, i);
 				this.pause(80);
 			}
 			victime.affiche(MARCHE, 1);
+			attaquant.affiche(MARCHE, 1);
 		}
 		
 		laboule.getLabel().getjLabel().setVisible(false);
