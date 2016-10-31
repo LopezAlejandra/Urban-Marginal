@@ -7,7 +7,7 @@ import java.net.UnknownHostException;
 import javax.swing.JOptionPane;
 
 public class ClientSocket {
-	private boolean connexionOk;
+	private boolean connexionOk=false;
 
 	/**
 	 * Constructeur
@@ -19,17 +19,18 @@ public class ClientSocket {
 		//Dans le constructeur, déclarez une variable socket de type Socket : 
 		//cet objet recevra le socket client créé lors de la tentative de 
 		//connexion au serveur. 
-		connexionOk=false;
-		Socket socket;
+		
+		 
 		try {
-			socket=new Socket(ip,port);
+			Socket socket=new Socket(ip,port);
 			System.out.println("La connexion au serveur a réussi");//Tout s'est bien passé
-			connexionOk=true;
+			this.connexionOk=true;
 			new Connection(socket,leRecepteur);//lance le thread indépendant
 											   //pour attendre les messages provenant du serveur
 		} catch (UnknownHostException e) {//serveur n'est pas disponible
 		
 			JOptionPane.showMessageDialog(null, "erreur : serveur indisponible");
+			e.printStackTrace();
 		} catch (IOException e) {// il y a eu un problème d'entrée/sortie
 			
 			JOptionPane.showMessageDialog(null, "erreur: vérifiez l'adresse ip");

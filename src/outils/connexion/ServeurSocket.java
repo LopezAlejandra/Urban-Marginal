@@ -21,7 +21,7 @@ public class ServeurSocket extends Thread {
 			System.out.println("erreur grave création socket serveur:"+e);//afficher le message d'erreur dans la console
 			System.exit(0);//Arrêter l'application
 		}
-		start();
+		super.start();
 	}
 	
 	public void run(){
@@ -33,7 +33,7 @@ public class ServeurSocket extends Thread {
 				System.out.println("un client s'est connecté");
 				new Connection(socket, this.leRecepteur);// le socket du client qui vient  d'être récupéré
 			} catch (IOException e) {
-				System.out.println("Erreur ...");
+				System.out.println("Erreur: création du socket : " + e);
 				System.exit(0);
 			}
 			

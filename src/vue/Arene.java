@@ -97,6 +97,7 @@ public class Arene extends JFrame implements Global {
 		jspChat.setViewportView(txtChat);
 		
 		if(client){
+			(new Son(SONAMBIANCE)).playContinue();//permet de boucler sur un son
 			for(int k=0; k<SON.length;k++){
 				lesSons[k] = new Son(CHEMINSONS+SON[k]);
 			}

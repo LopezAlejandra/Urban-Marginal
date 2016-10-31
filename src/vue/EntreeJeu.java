@@ -62,9 +62,8 @@ public class EntreeJeu extends JFrame {
 		JButton btnStart = new JButton("Start");
 		btnStart.addMouseListener(new MouseAdapter() {
 			
-			/**
-			 * clic sur le bouton Start pour lancer le serveur
-			 */
+			// clic sur le bouton Start pour lancer le serveur
+			 
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				btnStart_clic();
@@ -78,9 +77,8 @@ public class EntreeJeu extends JFrame {
 		
 		JButton btnConnect = new JButton("Connect");
 		btnConnect.addMouseListener(new MouseAdapter(){
-			/**
-			 * Clic sur le bouton connect pour se connecter
-			 */
+			// Clic sur le bouton connect pour se connecter
+			 
 			public void mouseClicked(MouseEvent arg0) {
 				btnConnect_clic();
 			}
@@ -93,9 +91,8 @@ public class EntreeJeu extends JFrame {
 		
 		JButton btnExit = new JButton("Exit");
 		btnExit.addMouseListener(new MouseAdapter() {
-			/**
-			 * clic sur le bouton Exit pour arreter l'application
-			 */
+			//Clic sur le bouton Exit pour arreter l'application
+			 
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				btnExit_clic();
