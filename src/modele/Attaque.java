@@ -1,14 +1,19 @@
 package modele;
+import java.util.ArrayList;
+
 import controleur.Global;
 //Cette classe va exécuter un processus indépendant.
 public class Attaque extends Thread implements Global{
 	private Joueur attaquant;
 	private JeuServeur jeuServeur;
-	
-	public Attaque(Joueur attaquant, JeuServeur jeuServeur){
+	private ArrayList<Mur>lesMurs;
+	public Attaque(Joueur attaquant, JeuServeur jeuServeur, ArrayList<Mur>lesMurs){
 		this.attaquant=attaquant;
 		this.jeuServeur=jeuServeur;
+		this.lesMurs=lesMurs;
+		
 		super.start();//va permettre de lancer le processus
+		
 	}
 	
 	public void run(){
@@ -27,7 +32,8 @@ public class Attaque extends Thread implements Global{
 			jeuServeur.envoi(laboule.getLabel());//envoi de la position à tous les joueurs
 			
 		}
-		while(laboule.getPosX()>0 &&laboule.getPosX()<L_ARENE);
+		while(laboule.getPosX()>0 &&laboule.getPosX()<L_ARENE&&toucheMur()==false);
+		
 		laboule.getLabel().getjLabel().setVisible(false);
 		jeuServeur.envoi(laboule.getLabel());
 	}
@@ -40,4 +46,12 @@ public class Attaque extends Thread implements Global{
 		}
 	}
 	
+	private boolean toucheMur(){
+		for(Mur unMur:lesMurs){
+			if(attaquant.getBoule().toucheObjet(unMur)){
+				return true;
+			}
+		}
+		return false;
+	}
 }

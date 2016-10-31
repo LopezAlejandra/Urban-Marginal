@@ -149,7 +149,7 @@ public class Joueur extends Objet implements Global {
 			break;
 		case TIRE:
 			if(!boule.getLabel().getjLabel().isVisible()){
-			boule.tireBoule(this);
+			boule.tireBoule(this,lesMurs);
 			}
 			break;
 		}
