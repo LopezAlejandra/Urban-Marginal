@@ -58,7 +58,8 @@ public class JeuServeur extends Jeu implements Global{
 	}
 	@Override
 	public void deconnection(Connection connection) {
-		// TODO Auto-generated method stub
+		lesJoueurs.get(connection).departJoueur();
+		lesJoueurs.remove(connection);
 		
 	}
 	//Cette méthode va donc envoyer vers le controleur soit le

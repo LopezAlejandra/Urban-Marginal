@@ -183,7 +183,16 @@ public class Joueur extends Objet implements Global {
 		}
 		return false;
 	}
-	
+	public void departJoueur(){
+		if(this.label!=null){//controler si le label du personnage existe
+			super.label.getjLabel().setVisible(false);
+			this.message.getjLabel().setVisible(false);
+			this.boule.getLabel().getjLabel().setVisible(false);
+			jeuServeur.envoi(label);
+			jeuServeur.envoi(message);
+			jeuServeur.envoi(boule);
+		}
+	}
 	
 	
 	

@@ -38,7 +38,7 @@ public class JeuClient extends Jeu{
 
 	@Override
 	public void deconnection(Connection connection) {
-	// TODO Auto-generated method stub
+		System.exit(0);
 		
 	}
 	public void envoi(Object info){
