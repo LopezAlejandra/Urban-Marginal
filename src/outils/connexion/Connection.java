@@ -43,6 +43,7 @@ public class Connection  extends Thread{
 			} catch (IOException e) {
 				JOptionPane.showMessageDialog(null,"l'ordinateur distant s'est déconnecté");
 				inOk=false;
+				//un joueur quitte le jeu p.58
 				((Controle) leRecepteur).deconnection(this);
 				
 				try {
