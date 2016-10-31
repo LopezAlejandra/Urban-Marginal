@@ -104,6 +104,7 @@ public class Arene extends JFrame implements Global {
 		
 	}
 	
+	
 	private void txtSaisie_keyPressed(KeyEvent arg0) {
 		if (arg0.getKeyCode() == KeyEvent.VK_ENTER) {//Retourne le code de la touche
 			if (txtSaisie.getText() != "") {//Controle si la zone de saisie n'est pas vide
@@ -185,4 +186,9 @@ public class Arene extends JFrame implements Global {
 	public void remplaceChat(String remplaceTxtChat){
 		txtChat.setText(remplaceTxtChat);
 	}
+	
+	public void joueSon(int numSon){
+		lesSons[numSon].play();
+	}
 }
+
