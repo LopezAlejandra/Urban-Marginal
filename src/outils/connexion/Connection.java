@@ -1,6 +1,5 @@
 package outils.connexion;
 import java.net.Socket;
-
 import javax.swing.JOptionPane;
 
 import controleur.Controle;
@@ -27,7 +26,7 @@ public class Connection  extends Thread{
 			System.out.println("Erreur création canal d'entrée");
 			System.exit(0);
 		}
-		start();
+		super.start();
 		((controleur.Controle)this.leRecepteur).setConnection(this);
 	}
 	public void run(){
@@ -37,13 +36,15 @@ public class Connection  extends Thread{
 			try {
 				reception= in.readObject();//attendre la réception d'un message de l'ordinateur distant
 				
-				((Controle) leRecepteur).receptionInfo(this,reception);
+				((controleur.Controle) leRecepteur).receptionInfo(this,reception);
 			} catch (ClassNotFoundException e) {
 				System.out.println("Classe non trouvée");
 				System.exit(0);
 			} catch (IOException e) {
 				JOptionPane.showMessageDialog(null,"l'ordinateur distant s'est déconnecté");
 				inOk=false;
+				((Controle) leRecepteur).deconnection(this);
+				
 				try {
 					in.close();
 				} catch (IOException e1) {
@@ -57,11 +58,11 @@ public class Connection  extends Thread{
 	
 	public synchronized void envoi(Object unObjet){//ce sera l'Objet a envoyer.
 		try {
-			
+			this.out.reset();
 			this.out.writeObject(unObjet);//appliquez la méthode writeObject sur l'objet out, en mettant en paramètre, unObjet.
 			this.out.flush();// pour vider le canal de sortie. 
 		} catch (IOException e) {
-			System.out.println("L'objet out ne fonctionne pas");
+			System.out.println("L'objet out ne fonctionne pas"+ e);
 		}
 		
 	}
