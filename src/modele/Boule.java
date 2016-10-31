@@ -19,4 +19,8 @@ public class Boule extends Objet implements Global {
 		
 		jeuServeur.nouveauLabelJeu(super.label);//Ainsi le JLabel sera ajoutè au JPanel de Serveur
 	}
+	
+	public void tireBoule(Joueur attaquant){
+		
+	}
 }
