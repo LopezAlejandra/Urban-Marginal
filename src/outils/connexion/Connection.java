@@ -15,13 +15,13 @@ public class Connection  extends Thread{
 	public Connection(Socket socket, Object leRecepteur){
 		this.leRecepteur=leRecepteur;
 		try {
-			out= new ObjectOutputStream(socket.getOutputStream());
+			this.out= new ObjectOutputStream(socket.getOutputStream());
 		} catch (IOException e) {
 			System.out.println("Erreur création canal de sortie");
 			System.exit(0);
 		}
 		try {
-			in=new ObjectInputStream(socket.getInputStream());
+			this.in=new ObjectInputStream(socket.getInputStream());
 		} catch (IOException e) {
 			System.out.println("Erreur création canal d'entrée");
 			System.exit(0);
@@ -44,7 +44,7 @@ public class Connection  extends Thread{
 				JOptionPane.showMessageDialog(null,"l'ordinateur distant s'est déconnecté");
 				inOk=false;
 				//un joueur quitte le jeu p.58
-				((Controle) leRecepteur).deconnection(this);
+				((controleur.Controle) leRecepteur).deconnection(this);
 				
 				try {
 					in.close();

@@ -172,15 +172,15 @@ public class ChoixJoueur extends JFrame implements Global  {
 		}
 	}
 
-	@SuppressWarnings("deprecation")
+	
 	private void souris_normale(){
-		contentPane.setCursor(new Cursor(DEFAULT_CURSOR));
+		contentPane.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 	}
 	
 	//--- Methode affichage souris doigt ---
-	@SuppressWarnings("deprecation")
+	
 	private void souris_doigt(){
-		contentPane.setCursor(new Cursor(HAND_CURSOR));
+		contentPane.setCursor(new Cursor(Cursor.HAND_CURSOR));
 	}
 	
 }	

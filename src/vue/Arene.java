@@ -36,8 +36,9 @@ public class Arene extends JFrame implements Global {
 	 * Create the frame.
 	 */
 	public Arene(String typeJeu,Controle controle) {
+		this.controle=controle;
 		this.client = (typeJeu == "client");//true si typeJeu contient "client"
-		this.controle=controle;	
+			
 		setTitle("Arena");//titre de la fenêtre.
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100,100,L_ARENE+3*MARGE,H_ARENE+H_CHAT);
@@ -57,15 +58,15 @@ public class Arene extends JFrame implements Global {
 		
 		jpnJeu = new JPanel();
 		jpnJeu.setBounds(0, 0, L_ARENE,H_ARENE);
-		jpnJeu.setLayout(null);
-		contentPane.add(jpnJeu);
 		jpnJeu.setOpaque(false);
+		contentPane.add(jpnJeu);
+		jpnJeu.setLayout(null);
 		
 		jpnMurs = new JPanel();
 		jpnMurs.setBounds(0, 0, L_ARENE,H_ARENE);
-		jpnMurs.setLayout(null);
-		contentPane.add(jpnMurs);
 		jpnMurs.setOpaque(false);
+		contentPane.add(jpnMurs);
+		jpnMurs.setLayout(null);
 		
 		JLabel lblFond = new JLabel("");
 		lblFond.setBounds(0,0, L_ARENE, H_ARENE);
@@ -77,6 +78,7 @@ public class Arene extends JFrame implements Global {
 			
 			txtSaisie.setBounds(0, H_ARENE, L_ARENE, H_SAISIE);
 			contentPane.add(txtSaisie);
+			txtSaisie.setColumns(10);
 			//envoi de la phrase au serveur
 			txtSaisie.addKeyListener(new KeyAdapter() {
 				@Override
@@ -89,9 +91,8 @@ public class Arene extends JFrame implements Global {
 		
 		
 		JScrollPane jspChat = new JScrollPane();
-		jspChat.setBounds(0, H_ARENE+H_SAISIE,L_ARENE,H_CHAT-H_SAISIE - 7 *MARGE);
+		jspChat.setBounds(0, H_ARENE+H_SAISIE,L_ARENE+H_CHAT,H_CHAT-H_SAISIE - 7 *MARGE);
 		contentPane.add(jspChat);
-		jspChat.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		
 		 txtChat = new JTextArea();
 		jspChat.setViewportView(txtChat);

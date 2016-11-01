@@ -49,9 +49,10 @@ public class Joueur extends Objet implements Global {
 		label.getjLabel().setHorizontalAlignment(SwingConstants.CENTER);
 		label.getjLabel().setVerticalAlignment(SwingConstants.CENTER);
 		
-		  message = new Label(Label.getNbLabel(), new JLabel());
+	    message = new Label(Label.getNbLabel(), new JLabel());
+	    Label.setNbLabel(Label.getNbLabel() + 1);
 		message.getjLabel().setHorizontalAlignment(SwingConstants.CENTER);
-		message.getjLabel().setFont(new Font("Dialog", Font.PLAIN, 8));
+		message.getjLabel().setFont(new Font("Dialog", Font.PLAIN, 10));
 		jeuServeur.nouveauLabelJeu(message);
 		premierePosition(lesJoueurs, lesMurs);
 		
@@ -185,11 +186,11 @@ public class Joueur extends Objet implements Global {
 	}
 	public void departJoueur(){
 		if(this.label!=null){//controler si le label du personnage existe
-			super.label.getjLabel().setVisible(false);
 			this.message.getjLabel().setVisible(false);
+			super.label.getjLabel().setVisible(false);
 			this.boule.getLabel().getjLabel().setVisible(false);
-			jeuServeur.envoi(label);
 			jeuServeur.envoi(message);
+			jeuServeur.envoi(label);
 			jeuServeur.envoi(boule);
 		}
 	}

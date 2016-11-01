@@ -2,7 +2,7 @@ package controleur;
 
 public interface Global {
 	public static final int PORT=6666;
-	public static final String SEPARATOR = "\\";
+	public static final String SEPARATOR = "//";
 	public static final String CHEMIN="media"+SEPARATOR;
 	public static final String CHEMINFONDS=CHEMIN+"fonds"+SEPARATOR;
 	public static final String FONDCHOIX=CHEMINFONDS+"fondchoix.jpg";
@@ -44,7 +44,7 @@ public interface Global {
 	public static final String CHEMINBOULES=CHEMIN+"boules"+SEPARATOR;
 	public static final String BOULE=CHEMINBOULES+"boule.gif";
 	public static final int NBETATSBLESSE=2;
-	public static final int NBETATSMORT=3;
+	public static final int NBETATSMORT=2;
 	public static final String CHEMINSONS = CHEMIN + "sons/";
 	public static final String SONPRECEDENT = CHEMINSONS + "precedent.wav" ; // sur le clic du bouton précédent 
 	public static final String SONSUIVANT = CHEMINSONS + "suivant.wav"; // sur le clic du bouton suivant 

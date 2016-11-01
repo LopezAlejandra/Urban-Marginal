@@ -101,7 +101,7 @@ public class Controle implements Global {
 			}
 		
 		if(ordre=="son"){
-			frmArene.joueSon(((int)info));
+			frmArene.joueSon(((Integer)info));
 		}
 	}
 	
@@ -133,6 +133,10 @@ public class Controle implements Global {
 	}
 	public void deconnection(Connection connection){
 		leJeu.deconnection(connection);
+	}
+	
+	public Jeu getLeJeu() {
+		return leJeu;
 	}
 }
 

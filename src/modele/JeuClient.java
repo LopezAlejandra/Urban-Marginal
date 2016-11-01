@@ -7,7 +7,6 @@ import outils.connexion.Connection;
 
 public class JeuClient extends Jeu{
 	private Connection connection;
-	
 	/**
 	 * 
 	 * @param controle

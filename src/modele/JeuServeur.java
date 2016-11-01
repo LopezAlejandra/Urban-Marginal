@@ -9,9 +9,9 @@ import outils.connexion.Connection;
 
 public class JeuServeur extends Jeu implements Global{
 	//Le Hashtable va permettre de gérer un dictionnaire, avec une clé qui sera de type Connection.
-	private Hashtable <Connection, Joueur> lesJoueurs=new Hashtable<Connection, Joueur>();
-	private ArrayList<Mur> lesMurs=new ArrayList<Mur>();//collection des murs
-	private ArrayList <Joueur>lesJoueursDanslordre=new ArrayList<Joueur>(); ;
+	private Hashtable <Connection, Joueur> lesJoueurs=new Hashtable<>();
+	private ArrayList<Mur> lesMurs=new ArrayList<>();//collection des murs
+	private ArrayList <Joueur>lesJoueursDanslordre=new ArrayList<>(); ;
 	private String laPhrase;
 	//constructeur
 	public JeuServeur(Controle controle) {

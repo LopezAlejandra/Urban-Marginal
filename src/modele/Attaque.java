@@ -35,12 +35,13 @@ public class Attaque extends Thread implements Global{
 				laboule.setPosX(laboule.getPosX()+LEPAS);
 			}
 			laboule.label.getjLabel().setBounds(laboule.getPosX(), laboule.getPosY(), L_BOULE, H_BOULE);
-			
+			this.pause(10);
 			jeuServeur.envoi(laboule.getLabel());//envoi de la position à tous les joueurs
 			victime=toucheJoueur();
 		}
 		
 		while(laboule.getPosX()>0 &&laboule.getPosX()<L_ARENE && toucheMur()==false && victime==null);
+		jeuServeur.envoi(HURT);
 		if(victime!=null && victime.estMort()==false){
 			
 			victime.perteVie();
@@ -52,6 +53,7 @@ public class Attaque extends Thread implements Global{
 			if(victime.estMort()){
 				for(int i = 1; i < NBETATSMORT; i++){
 					victime.affiche(MORT,i);
+					jeuServeur.envoi(DEATH);
 					this.pause(80);
 				}
 			}
