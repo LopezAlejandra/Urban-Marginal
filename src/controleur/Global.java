@@ -44,7 +44,7 @@ public interface Global {
 	public static final String CHEMINBOULES=CHEMIN+"boules"+SEPARATOR;
 	public static final String BOULE=CHEMINBOULES+"boule.gif";
 	public static final int NBETATSBLESSE=2;
-	public static final int NBETATSMORT=2;
+	public static final int NBETATSMORT=3;
 	public static final String CHEMINSONS = CHEMIN + "sons/";
 	public static final String SONPRECEDENT = CHEMINSONS + "precedent.wav" ; // sur le clic du bouton précédent 
 	public static final String SONSUIVANT = CHEMINSONS + "suivant.wav"; // sur le clic du bouton suivant 
@@ -55,4 +55,11 @@ public interface Global {
 	public static final int HURT=1;
 	public static final int DEATH=2;
 	public static final String[]SON={"fight.wav", "hurt.wav", "death.wav"} ;
+	
+	public static final int L_FIOLE=40;
+	public static final int H_FIOLE=40;
+	
+	public static final String CHEMINFIOLE=CHEMIN+"fiole"+SEPARATOR;
+	public static final String FIOLE=CHEMINFIOLE+"fiole_recupvie.png";
+	
 }
