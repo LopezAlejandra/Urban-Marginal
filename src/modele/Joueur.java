@@ -203,6 +203,14 @@ public class Joueur extends Objet implements Global {
 		return vie;
 	}
 	
+	private boolean toucheFiole(Fiole laFiole){
+		
+			if(super.toucheObjet(laFiole)){
+				return true;
+			}
+		
+		return false;
+	}
 	
 	
 }
