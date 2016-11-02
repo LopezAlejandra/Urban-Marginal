@@ -22,11 +22,15 @@ public class Joueur extends Objet implements Global {
 	private int orientation;//tourné vers la gauche
 	private int etape;//numéro d'étape dans l'animation
 	private Boule boule;
+	private Fiole fiole;
 	
 	public Boule getBoule() {
 		return boule;
 	}
-
+	
+	public Fiole getFiole(){
+		return fiole;
+	}
 	
 	protected Label getMessage() {
 		return message;
@@ -193,6 +197,10 @@ public class Joueur extends Objet implements Global {
 			jeuServeur.envoi(label);
 			jeuServeur.envoi(boule);
 		}
+	}
+	
+	public int getVie(){
+		return vie;
 	}
 	
 	
