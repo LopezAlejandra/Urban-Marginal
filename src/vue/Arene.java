@@ -6,8 +6,6 @@ import javax.swing.border.EmptyBorder;
 
 import controleur.Controle;
 import controleur.Global;
-import modele.Fiole;
-import modele.Joueur;
 import outils.son.Son;
 
 import java.awt.event.KeyAdapter;

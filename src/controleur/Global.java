@@ -56,8 +56,8 @@ public interface Global {
 	public static final int DEATH=2;
 	public static final String[]SON={"fight.wav", "hurt.wav", "death.wav"} ;
 	
-	public static final int L_FIOLE=40;
-	public static final int H_FIOLE=40;
+	public static final int L_FIOLE=30;
+	public static final int H_FIOLE=30;
 	
 	public static final String CHEMINFIOLE=CHEMIN+"fiole"+SEPARATOR;
 	public static final String FIOLE=CHEMINFIOLE+"fiole_recupvie.png";

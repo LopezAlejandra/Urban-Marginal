@@ -24,13 +24,15 @@ public class Joueur extends Objet implements Global {
 	private Boule boule;
 	private Fiole fiole;
 	
+	public Fiole getFiole(){
+		return fiole;
+	}
+	
 	public Boule getBoule() {
 		return boule;
 	}
 	
-	public Fiole getFiole(){
-		return fiole;
-	}
+	
 	
 	protected Label getMessage() {
 		return message;
@@ -63,8 +65,11 @@ public class Joueur extends Objet implements Global {
 		affiche(MARCHE,etape);
 		
 		boule=new Boule(jeuServeur);
-		
 		jeuServeur.envoi(boule.label);
+		
+		fiole=new Fiole(jeuServeur);
+		jeuServeur.envoi(fiole.label);
+		
 	}
 
 	private boolean toucheJoueur( Hashtable <Connection, Joueur> lesJoueurs){//reçoit en
@@ -195,22 +200,20 @@ public class Joueur extends Objet implements Global {
 			this.boule.getLabel().getjLabel().setVisible(false);
 			jeuServeur.envoi(message);
 			jeuServeur.envoi(label);
-			jeuServeur.envoi(boule);
+			jeuServeur.envoi(boule.getLabel());
 		}
 	}
 	
 	public int getVie(){
 		return vie;
 	}
-	
-	private boolean toucheFiole(Fiole laFiole){
-		
-			if(super.toucheObjet(laFiole)){
-				return true;
-			}
-		
-		return false;
+
+	public void augmenterVie(int i) {
+		// TODO Auto-generated method stub
+		vie+=i;
 	}
+	
+	
 	
 	
 }

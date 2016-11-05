@@ -40,6 +40,7 @@ public class JeuServeur extends Jeu implements Global{
 				super.envoi(connection, unJoueur.getLabel());
 				super.envoi(connection, unJoueur.getMessage());
 				super.envoi(connection, unJoueur.getBoule().getLabel());//Envoi aussi le label de la boule.
+				super.envoi(connection,unJoueur.getFiole().getLabel());
 		}
 			lesJoueurs.get(connection).initPerso(infos[1], Integer.parseInt(infos[2]), lesJoueurs, lesMurs);
 			this.lesJoueursDanslordre.add(this.lesJoueurs.get(connection)) ; //Insére ce nouveau joueur dans la collection lesJoueursDanslordre

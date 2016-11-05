@@ -20,9 +20,9 @@ public class Boule extends Objet implements Global {
 		super.label.getjLabel().setVerticalAlignment(SwingConstants.CENTER);
 		super.label.getjLabel().setBounds(0, 0, L_BOULE, H_BOULE);
 		super.label.getjLabel().setIcon(new ImageIcon(BOULE));
-		jeuServeur.nouveauLabelJeu(super.label);//Ainsi le JLabel sera ajoutè au JPanel de Serveur
 		
 		super.label.getjLabel().setVisible(false);
+		jeuServeur.nouveauLabelJeu(super.label);//Ainsi le JLabel sera ajoutè au JPanel de Serveur
 		
 		
 	}
