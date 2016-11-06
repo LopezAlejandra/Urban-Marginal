@@ -159,10 +159,10 @@ public class Joueur extends Objet implements Global {
 				position=ancpos;
 			}
 			if(this.toucheFiole(getFiole())){
-				this.augmenterVie(3);
+				this.augmenterVie(RECUPVIE);
 				this.sonDonneVie=new Son(SONDONNERVIE);
 				this.sonDonneVie.play();
-				fiole.label=null;
+				fiole.label=null; 
 				if(this.label==null){
 					this.fiole.getLabel().getjLabel().setVisible(false);
 				}
@@ -238,7 +238,6 @@ public class Joueur extends Objet implements Global {
 	}
 
 	public void augmenterVie(int i) {
-		// TODO Auto-generated method stub
 		vie+=i;
 	}
 	

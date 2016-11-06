@@ -69,8 +69,7 @@ public class Attaque extends Thread implements Global{
 			if(victime.getVie()==1){
 				Fiole lafiole= victime.getFiole();
 				lafiole.afficheTrue();
-				
-				jeuServeur.envoi(lafiole.getLabel());//envoie la fiole à tous les joueurs
+				jeuServeur.envoi(lafiole.getLabel());//envoie la fiole à tous les joueurs(côté client)
 				this.sonFioleApparait=new Son(SONAPPARAITFIOLE);
 				this.sonFioleApparait.play();
 			}
