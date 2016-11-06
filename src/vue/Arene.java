@@ -25,8 +25,8 @@ public class Arene extends JFrame implements Global {
 	private JPanel contentPane;
 	private JPanel jpnMurs;
 	private JPanel jpnJeu ;
-
-	private JTextArea txtChat;
+	
+	private JTextArea txtChat;	
 	private JTextField txtSaisie;
 	private boolean client;//Cette propriété permettra de savoir si c'est l'arène du client ou non.
 	private Controle controle;//instance de Controle.
@@ -67,6 +67,9 @@ public class Arene extends JFrame implements Global {
 		jpnMurs.setOpaque(false);
 		contentPane.add(jpnMurs);
 		jpnMurs.setLayout(null);
+		
+		
+		
 		
 		JLabel lblFond = new JLabel("");
 		lblFond.setBounds(0,0, L_ARENE, H_ARENE);
@@ -147,11 +150,14 @@ public class Arene extends JFrame implements Global {
 		jpnMurs.repaint();
 	}
 	
+	
 	public void ajoutPanelMurs(JPanel unPanel){// capable de réceptionner un JPanel et de transférer tout son contenu dans le JPanel des murs
 		jpnMurs.add(unPanel);//ajout cet objet au panel des murs
 		jpnMurs.repaint();//redessine le JPanel
 		contentPane.requestFocus();
 	}
+	
+	
 
 	public JPanel getJpnMurs() {
 		return jpnMurs;
@@ -192,12 +198,6 @@ public class Arene extends JFrame implements Global {
 	public void joueSon(int numSon){
 		lesSons[numSon].play();
 	}
-	
-	public void ajoutFiole(JLabel uneFiole){
-		jpnJeu.add(uneFiole);
-		jpnJeu.repaint();
-	}
-	
 
 }
 

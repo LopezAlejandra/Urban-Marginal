@@ -36,6 +36,7 @@ public interface Global {
 	public static final int HAUT=2;
 	public static final int BAS=3;
 	public static final int TIRE=4;//pour gérer le tir d'une boule
+	public static final int RECUPVIE=5;
 	public static final int ACTION=2;//pour que le serveur puisse traiter une action.
 	public static final int NBETATSMARCHE=4;
 	public static final int LEPAS=10;//va permettre de faire avancer ou reculer le personnage

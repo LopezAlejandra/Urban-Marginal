@@ -25,6 +25,9 @@ public class JeuServeur extends Jeu implements Global{
 			controle.evenementModele(this, "ajout mur", lesMurs.get(k).getLabel().getjLabel()); //exploiter l'evenement  );
 		}
 	}
+	
+	
+	
 	@Override
 	public void setConnection(Connection connection) {
 		lesJoueurs.put(connection, new Joueur(this));
@@ -40,7 +43,7 @@ public class JeuServeur extends Jeu implements Global{
 				super.envoi(connection, unJoueur.getLabel());
 				super.envoi(connection, unJoueur.getMessage());
 				super.envoi(connection, unJoueur.getBoule().getLabel());//Envoi aussi le label de la boule.
-				super.envoi(connection,unJoueur.getFiole().getLabel());
+				super.envoi(connection, unJoueur.getFiole().getLabel());	
 		}
 			lesJoueurs.get(connection).initPerso(infos[1], Integer.parseInt(infos[2]), lesJoueurs, lesMurs);
 			this.lesJoueursDanslordre.add(this.lesJoueurs.get(connection)) ; //Insére ce nouveau joueur dans la collection lesJoueursDanslordre
@@ -54,9 +57,16 @@ public class JeuServeur extends Jeu implements Global{
 			if(!lesJoueurs.get(connection).estMort()) {
 				lesJoueurs.get(connection).action(Integer.parseInt(infos[1]), lesJoueurs, lesMurs);
 			}
+			
+			
 			break;
 		}
 	}
+	
+	
+	
+	
+	
 	@Override
 	public void deconnection(Connection connection) {
 		lesJoueurs.get(connection).departJoueur();

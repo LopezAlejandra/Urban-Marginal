@@ -8,6 +8,7 @@ import javax.swing.SwingConstants;
 import controleur.Global;
 import outils.connexion.Connection;
 
+
 public class Joueur extends Objet implements Global {
 	private static final int MAXVIE=10;//vie de départ pour tous les joueurs
 	private static final int GAIN=1;//gain de points lors d'une attaque
@@ -27,7 +28,6 @@ public class Joueur extends Objet implements Global {
 	public Fiole getFiole(){
 		return fiole;
 	}
-	
 	public Boule getBoule() {
 		return boule;
 	}
@@ -67,8 +67,10 @@ public class Joueur extends Objet implements Global {
 		boule=new Boule(jeuServeur);
 		jeuServeur.envoi(boule.label);
 		
+		
 		fiole=new Fiole(jeuServeur);
-		jeuServeur.envoi(fiole.label);
+		jeuServeur.envoi(fiole.getLabel());
+		
 		
 	}
 
@@ -93,6 +95,8 @@ public class Joueur extends Objet implements Global {
 		}
 		return false;
 	}
+	
+	
 	
 	private void premierePosition(Hashtable<Connection,Joueur>lesJoueurs,ArrayList <Mur>lesMurs){
 		label.getjLabel().setBounds(0, 0, L_PERSO, H_PERSO);//affecter une taille au JLabel du personnage
@@ -119,28 +123,32 @@ public class Joueur extends Objet implements Global {
 	//méthode qui standarise le déplacement
 	private int deplace(int action, int position, int orientation, 
 					int lepas, int max, Hashtable<Connection,Joueur> lesJoueurs,
-					ArrayList<Mur> lesMurs ){
-	this.orientation=orientation;//(l'orientation va changer si les flèches gauche ou droite ont été utilisées
-	int ancpos=position;// revient à l'ancienne position si la nouvelle n'est pas bonne 
-	position=position+lepas;//permet un déplacement dans un sens ou l'autre
-	 //il faut contrôler si on ne sort pas de l'arène
-	if (position<0){
-		position=0;
-	}
-	if(position>max){
-		position=max;
-	}
-	
-	if (action==GAUCHE||action==DROITE){
-		super.posX=position;
+					ArrayList<Mur> lesMurs){
+		this.orientation=orientation;//(l'orientation va changer si les flèches gauche ou droite ont été utilisées
+		int ancpos=position;// revient à l'ancienne position si la nouvelle n'est pas bonne 
+		position=position+lepas;//permet un déplacement dans un sens ou l'autre
+				//il faut contrôler si on ne sort pas de l'arène
+			if (position<0){
+				position=0;
+			}
+			if(position>max){
+				position=max;
+			}
+			
+			if (action==GAUCHE||action==DROITE){
+				super.posX=position;
+				
+			}
 		
-	}
-	else{
-		super.posY=position;
-	}
-	if(this.toucheMur(lesMurs)||this.toucheJoueur(lesJoueurs)){
-		position=ancpos;
-	}
+			
+			else{
+				super.posY=position;
+			}
+			if(this.toucheMur(lesMurs)||this.toucheJoueur(lesJoueurs)){
+				position=ancpos;
+			}
+	
+	
 	etape++;
 	if(etape== NBETATSMARCHE){
 		etape= 1;
@@ -167,11 +175,12 @@ public class Joueur extends Objet implements Global {
 			boule.tireBoule(this,lesMurs,lesJoueurs);
 			}
 			break;
+		
 		}
 		affiche(MARCHE,etape);// afin qu'après l'action, le personnage soit réaffiché et envoyé à tous. La 
 		//Le déplacement et les collisions finis
 		
-	}
+	}	
 	
 	public int getOrientation(){
 		return orientation;
@@ -212,8 +221,6 @@ public class Joueur extends Objet implements Global {
 		// TODO Auto-generated method stub
 		vie+=i;
 	}
-	
-	
 	
 	
 }

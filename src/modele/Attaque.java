@@ -11,6 +11,7 @@ public class Attaque extends Thread implements Global{
 	private JeuServeur jeuServeur;
 	private ArrayList<Mur>lesMurs;
 	private Hashtable <Connection,Joueur>lesJoueurs;
+
 	
 	
 	public Attaque(Joueur attaquant, JeuServeur jeuServeur, ArrayList<Mur>lesMurs, Hashtable <Connection,Joueur>lesJoueurs){
@@ -22,33 +23,44 @@ public class Attaque extends Thread implements Global{
 		
 	}
 	
+	
 	public void run(){
 		attaquant.affiche(MARCHE, 1);
 		Boule laboule=attaquant.getBoule();
 		int orientation=attaquant.getOrientation();
 		laboule.label.getjLabel().setVisible(true);
 		Joueur victime=null;
+		
+				
 		do{
 			if(orientation==GAUCHE){
 				laboule.setPosX(laboule.getPosX()-LEPAS);
 			}else{
 				laboule.setPosX(laboule.getPosX()+LEPAS);
 			}
+			
+			
 			laboule.label.getjLabel().setBounds(laboule.getPosX(), laboule.getPosY(), L_BOULE, H_BOULE);
 			this.pause(10);
 			jeuServeur.envoi(laboule.getLabel());//envoi de la position à tous les joueurs
 			victime=toucheJoueur();
+			
 		}
 		
 		while(laboule.getPosX()>0 &&laboule.getPosX()<L_ARENE && toucheMur()==false && victime==null);
 		jeuServeur.envoi(HURT);
+		
 		if(victime!=null && victime.estMort()==false){
-			
 			victime.perteVie();
 			attaquant.gainVie();
+			
 			for(int i=1; i < NBETATSBLESSE; i++){
 				victime.affiche(BLESSE, i);
 				this.pause(80);
+			}
+			
+			if(victime.getVie()==1){
+				victime.getFiole().afficheTrue();
 			}
 			if(victime.estMort()){
 				for(int i = 1; i < NBETATSMORT; i++){
@@ -67,6 +79,8 @@ public class Attaque extends Thread implements Global{
 		laboule.getLabel().getjLabel().setVisible(false);
 		jeuServeur.envoi(laboule.getLabel());
 	}
+	
+	
 	public void pause(long milli){
 		try {
 			Thread.sleep(milli);
@@ -93,4 +107,6 @@ public class Attaque extends Thread implements Global{
 		}
 		return null;
 	}
+	
+	
 }
