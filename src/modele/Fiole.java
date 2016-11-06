@@ -1,5 +1,5 @@
 package modele;
-import java.util.ArrayList;
+
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -26,10 +26,12 @@ public  class Fiole extends Objet implements Global {
 	}
 	
 	public void afficheTrue(){
-		super.label.getjLabel().setVisible(true);
-			
+		super.label.getjLabel().setVisible(true);	
+		
 	}
+
 	
+
 
 }
 

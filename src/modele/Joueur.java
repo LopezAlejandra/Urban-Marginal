@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import controleur.Global;
 import outils.connexion.Connection;
+import outils.son.Son;
+
 
 
 public class Joueur extends Objet implements Global {
@@ -24,6 +26,9 @@ public class Joueur extends Objet implements Global {
 	private int etape;//numéro d'étape dans l'animation
 	private Boule boule;
 	private Fiole fiole;
+	private Son sonDonneVie;
+	
+	
 	
 	public Fiole getFiole(){
 		return fiole;
@@ -155,9 +160,14 @@ public class Joueur extends Objet implements Global {
 			}
 			if(this.toucheFiole(getFiole())){
 				this.augmenterVie(3);
+				this.sonDonneVie=new Son(SONDONNERVIE);
+				this.sonDonneVie.play();
 				fiole.label=null;
+				if(this.label==null){
+					this.fiole.getLabel().getjLabel().setVisible(false);
+				}
 			}
-	
+			
 	
 	etape++;
 	if(etape== NBETATSMARCHE){

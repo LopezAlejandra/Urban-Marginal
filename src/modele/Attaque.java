@@ -5,12 +5,17 @@ import java.util.Hashtable;
 
 import controleur.Global;
 import outils.connexion.Connection;
+import outils.son.Son;
+
 //Cette classe va exécuter un processus indépendant.
 public class Attaque extends Thread implements Global{
 	private Joueur attaquant;
 	private JeuServeur jeuServeur;
 	private ArrayList<Mur>lesMurs;
 	private Hashtable <Connection,Joueur>lesJoueurs;
+	private Son sonFioleApparait;
+
+	
 
 	
 	
@@ -60,8 +65,15 @@ public class Attaque extends Thread implements Global{
 			}
 			
 			if(victime.getVie()==1||victime.getVie()==2){
-				victime.getFiole().afficheTrue();
+				Fiole lafiole= victime.getFiole();
+				lafiole.afficheTrue();
+				
+				jeuServeur.envoi(lafiole.getLabel());//envoie la fiole à tous les joueurs
+				this.sonFioleApparait=new Son(SONAPPARAITFIOLE);
+				this.sonFioleApparait.play();
 			}
+			
+			
 			if(victime.estMort()){
 				for(int i = 1; i < NBETATSMORT; i++){
 					victime.affiche(MORT,i);
@@ -74,6 +86,9 @@ public class Attaque extends Thread implements Global{
 			}
 			
 			attaquant.affiche(MARCHE, 1);
+			
+			
+			
 		}
 		
 		laboule.getLabel().getjLabel().setVisible(false);
