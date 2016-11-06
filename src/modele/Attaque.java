@@ -64,7 +64,9 @@ public class Attaque extends Thread implements Global{
 				this.pause(80);
 			}
 			
-			if(victime.getVie()==1||victime.getVie()==2){
+			
+				
+			if(victime.getVie()==1){
 				Fiole lafiole= victime.getFiole();
 				lafiole.afficheTrue();
 				
@@ -72,6 +74,8 @@ public class Attaque extends Thread implements Global{
 				this.sonFioleApparait=new Son(SONAPPARAITFIOLE);
 				this.sonFioleApparait.play();
 			}
+			
+			
 			
 			
 			if(victime.estMort()){
