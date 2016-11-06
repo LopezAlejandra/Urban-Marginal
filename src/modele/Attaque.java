@@ -59,7 +59,7 @@ public class Attaque extends Thread implements Global{
 				this.pause(80);
 			}
 			
-			if(victime.getVie()==1){
+			if(victime.getVie()==1||victime.getVie()==2){
 				victime.getFiole().afficheTrue();
 			}
 			if(victime.estMort()){
@@ -108,5 +108,7 @@ public class Attaque extends Thread implements Global{
 		return null;
 	}
 	
+	
+		
 	
 }

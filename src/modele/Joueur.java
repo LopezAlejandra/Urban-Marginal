@@ -46,7 +46,7 @@ public class Joueur extends Objet implements Global {
 	}
 	
 	
-	public void initPerso(String unPseudo, int unNumero,Hashtable<Connection,Joueur>lesJoueurs,ArrayList <Mur>lesMurs ){
+	public void initPerso(String unPseudo, int unNumero,Hashtable<Connection,Joueur>lesJoueurs,ArrayList <Mur>lesMurs){
 		this.pseudo=unPseudo;
 		this.numPerso=unNumero;
 		label=new Label(Label.getNbLabel(),new JLabel());//contient le personnage
@@ -69,7 +69,7 @@ public class Joueur extends Objet implements Global {
 		
 		
 		fiole=new Fiole(jeuServeur);
-		jeuServeur.envoi(fiole.getLabel());
+		jeuServeur.envoi(fiole.label);
 		
 		
 	}
@@ -96,6 +96,12 @@ public class Joueur extends Objet implements Global {
 		return false;
 	}
 	
+	private boolean toucheFiole(Fiole uneFiole){
+		if(super.toucheObjet(uneFiole)){
+			return true;
+		}
+		return false;
+	}
 	
 	
 	private void premierePosition(Hashtable<Connection,Joueur>lesJoueurs,ArrayList <Mur>lesMurs){
@@ -146,6 +152,10 @@ public class Joueur extends Objet implements Global {
 			}
 			if(this.toucheMur(lesMurs)||this.toucheJoueur(lesJoueurs)){
 				position=ancpos;
+			}
+			if(this.toucheFiole(getFiole())){
+				this.augmenterVie(3);
+				fiole.label=null;
 			}
 	
 	

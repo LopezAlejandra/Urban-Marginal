@@ -13,7 +13,7 @@ public class JeuServeur extends Jeu implements Global{
 	private ArrayList<Mur> lesMurs=new ArrayList<>();//collection des murs
 	private ArrayList <Joueur>lesJoueursDanslordre=new ArrayList<>(); ;
 	private String laPhrase;
-	//constructeur
+		//constructeur
 	public JeuServeur(Controle controle) {
 		super.controle = controle;
 		Label.setNbLabel(0);
